@@ -27,7 +27,7 @@ const AppHeader = styled.header`
 class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={whiteTheme}>
+      <ThemeProvider theme={this.props.theme === "dark" ? darkTheme : whiteTheme}>
         <div>
           <AppHeader>
             <ParagraphText>
