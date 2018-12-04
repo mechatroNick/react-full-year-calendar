@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Link = styled.a`
-  color: #61dafb;
+  color: ${props => props.theme.linkColor};
 `
 
 export default Link;
