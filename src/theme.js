@@ -10,7 +10,7 @@ const addAliases = (arr, aliases) =>
     })
   );
 
-export const breakpoints = [320, 512, 768, 1024];
+export const breakpoints = [400, 512, 768, 1024];
 
 export const mediaQueries = breakpoints.map(createMediaQuery);
 

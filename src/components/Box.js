@@ -1,24 +1,24 @@
-import styled from 'styled-components'
-import { space, width, color, style } from 'styled-system'
-import PropTypes from 'prop-types'
-import theme from '../theme'
+import styled from "styled-components";
+import { space, width, color, style, textAlign } from "styled-system";
+import PropTypes from "prop-types";
+import theme from "../theme";
 
-const align = style('text-align', 'align')
+const align = style("align");
 const Box = styled.div`
-  ${space} ${width} ${color} ${align}
-`
+  ${space} ${width} ${color} ${align} ${textAlign};
+`;
 
-Box.displayName = 'Box'
+Box.displayName = "Box";
 
 Box.defaultProps = {
   theme: theme
-}
+};
 
 const numberStringOrArray = PropTypes.oneOfType([
   PropTypes.number,
   PropTypes.string,
   PropTypes.array
-])
+]);
 
 Box.propTypes = {
   color: PropTypes.string,
@@ -42,11 +42,11 @@ Box.propTypes = {
   px: numberStringOrArray,
   py: numberStringOrArray,
   align: (props, name, component) => {
-    if (!props[name]) return
+    if (!props[name]) return;
     return new Error(
-      'The Box `align` prop will deprecated. Please use Text instead.'
-    )
+      "The Box `align` prop will deprecated. Please use Text instead."
+    );
   }
-}
+};
 
-export default Box
+export default Box;

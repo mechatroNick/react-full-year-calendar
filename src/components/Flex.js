@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import {
   alignSelf,
   alignItems,
@@ -6,16 +6,16 @@ import {
   flexDirection,
   flex,
   propTypes
-} from 'styled-system'
-import Box from './Box'
-import PropTypes from 'prop-types'
+} from "styled-system";
+import Box from "./Box";
+import PropTypes from "prop-types";
 
-const wrap = props => (props.wrap ? { flexWrap: 'wrap' } : null)
+const wrap = props => (props.wrap ? { flexWrap: "wrap" } : null);
 
 const Flex = styled(Box)`
   display: flex;
   ${alignSelf} ${alignItems} ${justifyContent} ${wrap} ${flexDirection} ${flex};
-`
+`;
 
 Flex.propTypes = {
   wrap: PropTypes.bool,
@@ -24,8 +24,8 @@ Flex.propTypes = {
   ...propTypes.justifyContent,
   ...propTypes.flexDirection,
   ...propTypes.flex
-}
+};
 
-Flex.displayName = 'Flex';
+Flex.displayName = "Flex";
 
 export default Flex;
