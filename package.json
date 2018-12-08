@@ -7,10 +7,12 @@
     "jest-styled-components": "^6.3.1",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
-    "styled-components": "^4.1.2"
+    "styled-components": "^4.1.2",
+    "styled-system": "^3.1.11"
   },
   "scripts": {
     "start": "react-scripts start",
