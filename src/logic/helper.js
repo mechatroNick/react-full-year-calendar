@@ -9,3 +9,8 @@ export const getCurrentMonth = () => {
   const check = moment();
   return check.format("MMMM");
 };
+
+export const getCurrentDateMonthYear = () => {
+  const check = moment();
+  return check.format("DD-MM-YYYY");
+};

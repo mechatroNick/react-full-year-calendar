@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
-
 import {
   theme,
   Box,
@@ -10,25 +9,68 @@ import {
   Heading,
   Text
 } from "../deign system";
+import {TYPE_OF_CHANGE_YEAR} from  "../logic/constant"
 
-import { getCurrentYear, getCurrentMonth } from "../logic/helper.js";
+import Header from "./Header";
+
+import {
+  getCurrentYear,
+  getCurrentMonth,
+  getCurrentDateMonthYear
+} from "../logic/helper.js";
+import { TYPE_OF_EVENTS } from "../logic/constant";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      year: 0,
+      eventList: {}
+    };
+    this.handleChangeYear = this.handleChangeYear.bind(this);
+  }
+
+  /**
+   * Adding today as an event
+   */
+  componentWillMount() {
+    const currentDateMonthYear = getCurrentDateMonthYear();
+    const eventList = {};
+    eventList[`${currentDateMonthYear}`] = TYPE_OF_EVENTS.TODAY;
+    const currentYear = parseInt(getCurrentYear());
+    this.setState({
+        year: currentYear,
+        eventList: eventList
+      }
+    );
+  }
+
+  handleChangeYear(event){
+    const action = event.target.id;
+    let newYear = this.state.year;
+    switch (action) {
+      case TYPE_OF_CHANGE_YEAR.TO_PREVIOUS_YEAR:
+        newYear -= 1;
+        break;
+      case TYPE_OF_CHANGE_YEAR.TO_NEXT_YEAR:
+        newYear += 1;
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      year: newYear
+    })
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
-          <Flex wrap={true} justify={"center"} align={"center"}>
-            <Box width={1 / 5} my={3} textAlign={"center"}>
-              <Button radius={5}>Prev</Button>
-            </Box>
-            <Box width={3 / 5} textAlign={"center"}>
-              <Heading.h1>{getCurrentYear()}</Heading.h1>
-            </Box>
-            <Box width={1 / 5} my={3} textAlign={"center"}>
-              <Button >Next</Button>
-            </Box>
-          </Flex>
+          <Header
+            year={this.state.year}
+            changeYear={this.handleChangeYear}
+          />
           <Flex wrap={true} justify={"center"} align={"center"}>
             <Box width={[0.1, 0.025, 1 / 54]} />
             <Flex
