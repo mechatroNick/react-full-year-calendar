@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
-import Flex from "./Flex.js";
-import Box from "./Box.js";
-import Container from "./Container.js";
-import Text from "./Text.js";
-import theme from "../theme.js";
+
+import {
+  theme,
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Text
+} from '../deign system'
 
 class App extends Component {
   render() {
@@ -21,9 +25,9 @@ class App extends Component {
               textAlign={"center"}
             >
               <Box width={1} >
-                <Text>
+                <Heading.h3>
                   January
-                </Text>
+                </Heading.h3>
               </Box>
 
               <Box width={1 / 7}>M</Box>

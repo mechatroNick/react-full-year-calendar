@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { space, width, color, style, textAlign } from "styled-system";
 import PropTypes from "prop-types";
-import theme from "../theme";
+import theme from "./theme";
 
 const align = style("align");
 const Box = styled.div`
