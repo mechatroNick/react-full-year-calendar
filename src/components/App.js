@@ -9,7 +9,7 @@ import {
   Heading,
   Text
 } from "../deign system";
-import { TYPE_OF_CHANGE_YEAR } from "../logic/constant";
+import { TYPE_OF_CHANGE_YEAR, MONTHS_LIST } from "../logic/constant";
 
 import Header from "./Header";
 import MonthCalendar from "./MonthCalendar"
@@ -68,6 +68,9 @@ class App extends Component {
       default:
         break;
     }
+    if(!App.rawYearData.hasOwnProperty`${newYear}`){
+      App.rawYearData[`${newYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(newYear));
+    }
     this.setState({
       year: newYear
     });
@@ -75,38 +78,18 @@ class App extends Component {
 
   render() {
     const {year} = this.state;
-    const fakeMonth = App.rawYearData["2018"][1];
+    const yearSkeletonData = App.rawYearData[year];
 
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
           <Header year={year} changeYear={this.handleChangeYear} />
           <Flex wrap={true} justify={"center"} align={"center"}>
-            <MonthCalendar month={fakeMonth}/>
-            <Flex
-              width={[1, 1 / 2, 1 / 3]}
-              color={"white"}
-              bg={"lightGreen"}
-              my={3}
-            >
-              Aye
-            </Flex>
-            <Flex
-              width={[1, 1 / 2, 1 / 3]}
-              color={"white"}
-              bg={"lightBlue"}
-              my={3}
-            >
-              Aye
-            </Flex>
-            <Flex
-              width={[1, 1 / 2, 1 / 3]}
-              color={"white"}
-              bg={"lightBlue"}
-              my={3}
-            >
-              Aye
-            </Flex>
+            {yearSkeletonData.map((month,index) => {
+              return (
+                <MonthCalendar month={month} key={MONTHS_LIST[index]}/>
+              );
+            })}
           </Flex>
         </Container>
       </ThemeProvider>

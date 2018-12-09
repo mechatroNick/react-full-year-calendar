@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Box, Flex, Heading } from "../deign system";
+import { Box, Flex, Text } from "../deign system";
 
 const DayBox = props => {
   const { key, date } = props;
@@ -15,7 +15,7 @@ const DayBox = props => {
 };
 
 const MonthCalendar = props => {
-  const { month } = props;
+  const { month, key } = props;
   return (
     <Fragment>
       <Box width={[0.1, 0.025, 1 / 54]} />
@@ -25,9 +25,10 @@ const MonthCalendar = props => {
         my={3}
         wrap={true}
         textAlign={"center"}
+        align={"center"}
       >
         <Box width={1}>
-          <Heading.h3>Jan</Heading.h3>
+          <Text key={key} bg={'gray'} color={'black'}>{key}</Text>
         </Box>
 
         <Box bg={"blue"} color={'white'} width={1 / 7}>M</Box>
@@ -35,13 +36,13 @@ const MonthCalendar = props => {
         <Box bg={"blue"} color={'white'} width={1 / 7}>W</Box>
         <Box bg={"blue"} color={'white'} width={1 / 7}>T</Box>
         <Box bg={"blue"} color={'white'} width={1 / 7}>F</Box>
-        <Box bg={"blue"} color={'white'} width={1 / 7}>S</Box>
-        <Box bg={"blue"} color={'white'} width={1 / 7}>S</Box>
-        {month.map(key => {
-          if (key === "empty") {
-            return (<Box width={1 / 7}></Box>);
+        <Box bg={"lightBlue"} color={'white'} width={1 / 7}>S</Box>
+        <Box bg={"lightBlue"} color={'white'} width={1 / 7}>S</Box>
+        {month.map(date => {
+          if (date === "empty") {
+            return (<Box color={'white'} width={1 / 7}>*</Box>);
           } else {
-            return (<DayBox key={key} date={parseInt(key.substring(8, 10))}/>);
+            return (<DayBox key={date} date={parseInt(date.substring(8, 10))}/>);
           }
         })}
       </Flex>

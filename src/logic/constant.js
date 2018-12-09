@@ -35,3 +35,18 @@ export const MONTHS = {
   NOVEMBER: "NOVEMBER",
   DECEMBER: "DECEMBER"
 };
+
+export const MONTHS_LIST = [
+  "JANUARY",
+  "FEBRUARY",
+  "MARCH",
+  "APRIL",
+  "MAY",
+  "JUNE",
+  "JULY",
+  "AUGUST",
+  "SEPTEMBER",
+  "OCTOBER",
+  "NOVEMBER",
+  "DECEMBER"
+];
