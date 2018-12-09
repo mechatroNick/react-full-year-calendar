@@ -1,3 +1,6 @@
+import palx from "palx";
+import { includes, get, omit } from "lodash";
+
 const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
 const addAliases = (arr, aliases) =>
@@ -12,7 +15,11 @@ const addAliases = (arr, aliases) =>
 
 export const breakpoints = [400, 512, 768, 1024];
 
-export const mediaQueries = breakpoints.map(createMediaQuery);
+export const mediaQueries = {
+  ...breakpoints.map(createMediaQuery),
+  reduceMotion: "@media (prefers-reduced-motion: reduce)",
+  reduceTransparency: "@media (prefers-reduced-transparency: reduce)"
+};
 
 const aliases = ["sm", "md", "lg", "xl"];
 
@@ -122,7 +129,7 @@ const colors = {
 export { colors };
 
 // styled-system's `borderRadius` function can hook into the `radii` object/array
-export const radii = [0, 2, 4, 8, 16, "100%"];
+export const radii = ['0px', '2px', '4px', '8px', '16px', '32px', "100%"];
 export const radius = "2px";
 
 export const maxContainerWidth = "1280px";
@@ -162,6 +169,26 @@ const transitionDelays = {
   xLarge: `360ms`
 };
 
+export const scaleFactor = 17 / 16;
+
+export const shadowColor = "rgba(0,0,0,0.125)";
+
+export const hexa = (color, alpha) => {
+  const hex = cx(color);
+  if (!includes(hex, "#")) return shadowColor;
+  const r = parseInt(hex.slice(1, 3), 16),
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
+
+  if (alpha >= 0) {
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  } else {
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+};
+
+export const cx = key => get(colors, key, key);
+
 const theme = {
   breakpoints,
   mediaQueries,
@@ -179,7 +206,10 @@ const theme = {
   maxContainerWidth,
   duration,
   timingFunctions,
-  transitionDelays
+  transitionDelays,
+  cx,
+  hexa,
+  scaleFactor
 };
 
 export default theme;

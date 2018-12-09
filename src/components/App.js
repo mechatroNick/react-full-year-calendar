@@ -4,18 +4,32 @@ import { ThemeProvider } from "styled-components";
 import {
   theme,
   Box,
+  Button,
   Container,
   Flex,
   Heading,
   Text
-} from '../deign system'
+} from "../deign system";
+
+import { getCurrentYear, getCurrentMonth } from "../logic/helper.js";
 
 class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
-          <Flex wrap={true} justify="center" align="center">
+          <Flex wrap={true} justify={"center"} align={"center"}>
+            <Box width={1 / 5} my={3} textAlign={"center"}>
+              <Button radius={5}>Prev</Button>
+            </Box>
+            <Box width={3 / 5} textAlign={"center"}>
+              <Heading.h1>{getCurrentYear()}</Heading.h1>
+            </Box>
+            <Box width={1 / 5} my={3} textAlign={"center"}>
+              <Button >Next</Button>
+            </Box>
+          </Flex>
+          <Flex wrap={true} justify={"center"} align={"center"}>
             <Box width={[0.1, 0.025, 1 / 54]} />
             <Flex
               width={[0.8, 0.45, 16 / 54]}
@@ -24,10 +38,8 @@ class App extends Component {
               wrap={true}
               textAlign={"center"}
             >
-              <Box width={1} >
-                <Heading.h3>
-                  January
-                </Heading.h3>
+              <Box width={1}>
+                <Heading.h3>{getCurrentMonth()}</Heading.h3>
               </Box>
 
               <Box width={1 / 7}>M</Box>
