@@ -12,6 +12,7 @@ import {
 import { TYPE_OF_CHANGE_YEAR } from "../logic/constant";
 
 import Header from "./Header";
+import MonthCalendar from "./MonthCalendar"
 
 import {
   getCurrentYear,
@@ -30,6 +31,8 @@ class App extends Component {
       eventObj: {}
     };
     this.handleChangeYear = this.handleChangeYear.bind(this);
+
+    App.rawYearData = {};
   }
 
   /**
@@ -45,10 +48,7 @@ class App extends Component {
       year: currentYear,
       eventObj: initEventObj
     });
-    console.log(getDaysOfYearFullFormatInLists(2018));
-    console.log(
-      getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(2018))
-    );
+    App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
   }
 
   /**
@@ -74,46 +74,15 @@ class App extends Component {
   }
 
   render() {
+    const {year} = this.state;
+    const fakeMonth = App.rawYearData["2018"][1];
+
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
-          <Header year={this.state.year} changeYear={this.handleChangeYear} />
+          <Header year={year} changeYear={this.handleChangeYear} />
           <Flex wrap={true} justify={"center"} align={"center"}>
-            <Box width={[0.1, 0.025, 1 / 54]} />
-            <Flex
-              width={[0.8, 0.45, 16 / 54]}
-              color={"Black"}
-              my={3}
-              wrap={true}
-              textAlign={"center"}
-            >
-              <Box width={1}>
-                <Heading.h3>{getCurrentMonth()}</Heading.h3>
-              </Box>
-
-              <Box width={1 / 7}>M</Box>
-              <Box width={1 / 7}>T</Box>
-              <Box width={1 / 7}>W</Box>
-              <Box width={1 / 7}>T</Box>
-              <Box width={1 / 7}>F</Box>
-              <Box width={1 / 7}>S</Box>
-              <Box width={1 / 7}>S</Box>
-              <Box width={1 / 7}> </Box>
-              <Box width={1 / 7}>1</Box>
-              <Box width={1 / 7}>2</Box>
-              <Box width={1 / 7}>3</Box>
-              <Box width={1 / 7}>4</Box>
-              <Box width={1 / 7}>5</Box>
-              <Box width={1 / 7}>6</Box>
-              <Box width={1 / 7}>7</Box>
-              <Box width={1 / 7}>8</Box>
-              <Box width={1 / 7}>9</Box>
-              <Box width={1 / 7}>10</Box>
-              <Box width={1 / 7}>11</Box>
-              <Box width={1 / 7}>12</Box>
-              <Box width={1 / 7}>13</Box>
-            </Flex>
-            <Box width={[0.1, 0.025, 1 / 54]} />
+            <MonthCalendar month={fakeMonth}/>
             <Flex
               width={[1, 1 / 2, 1 / 3]}
               color={"white"}
