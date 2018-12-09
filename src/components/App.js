@@ -9,7 +9,7 @@ import {
   Heading,
   Text
 } from "../deign system";
-import {TYPE_OF_CHANGE_YEAR} from  "../logic/constant"
+import { TYPE_OF_CHANGE_YEAR } from "../logic/constant";
 
 import Header from "./Header";
 
@@ -17,7 +17,8 @@ import {
   getCurrentYear,
   getCurrentMonth,
   getCurrentDateMonthYear,
-  getDaysOfYearFullFormatInLists
+  getDaysOfYearFullFormatInLists,
+  getDaysInCalendarMonthsFormat
 } from "../logic/helper.js";
 import { TYPE_OF_EVENTS } from "../logic/constant";
 
@@ -41,18 +42,20 @@ class App extends Component {
     initEventObj[`${currentDateMonthYear}`] = TYPE_OF_EVENTS.TODAY;
     const currentYear = parseInt(getCurrentYear());
     this.setState({
-        year: currentYear,
-        eventObj: initEventObj
-      }
+      year: currentYear,
+      eventObj: initEventObj
+    });
+    console.log(getDaysOfYearFullFormatInLists(2018));
+    console.log(
+      getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(2018))
     );
-    console.log(getDaysOfYearFullFormatInLists(2017))
   }
 
   /**
    * Button clicks, +1 or -1 year according to button id
    * @param event: button click events
    */
-  handleChangeYear(event){
+  handleChangeYear(event) {
     const action = event.target.id;
     let newYear = this.state.year;
     switch (action) {
@@ -67,17 +70,14 @@ class App extends Component {
     }
     this.setState({
       year: newYear
-    })
+    });
   }
 
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
-          <Header
-            year={this.state.year}
-            changeYear={this.handleChangeYear}
-          />
+          <Header year={this.state.year} changeYear={this.handleChangeYear} />
           <Flex wrap={true} justify={"center"} align={"center"}>
             <Box width={[0.1, 0.025, 1 / 54]} />
             <Flex

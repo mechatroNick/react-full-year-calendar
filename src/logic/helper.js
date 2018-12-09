@@ -107,3 +107,30 @@ export const getDaysOfYearFullFormatInLists = (year = getCurrentYear()) => {
   return daysInMonthsFullFormat;
 };
 
+export const getDayOfTheWeekInNumber = (date = "2015-07-02") => {
+  return moment(date).isoWeekday();
+};
+
+export const putDaysInCalendarMonthFormat = daysInMonthFullFormat => {
+  const firstDayOfMonth = daysInMonthFullFormat[0];
+  const dayOfWeek = getDayOfTheWeekInNumber(firstDayOfMonth);
+  let output = [];
+  for (let i = 1; i < dayOfWeek; i++) {
+    output.push("empty");
+  }
+  daysInMonthFullFormat.forEach(day => {
+    output.push(day);
+  });
+  for (let i = output.length; i < 42; i++) {
+    output.push("empty");
+  }
+  return output;
+};
+
+export const getDaysInCalendarMonthsFormat = daysInMonthsFullFormat => {
+  let output = [];
+  daysInMonthsFullFormat.forEach(monthData => {
+    output.push(putDaysInCalendarMonthFormat(monthData));
+  });
+  return output;
+};
