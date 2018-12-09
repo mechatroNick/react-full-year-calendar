@@ -16,7 +16,8 @@ import Header from "./Header";
 import {
   getCurrentYear,
   getCurrentMonth,
-  getCurrentDateMonthYear
+  getCurrentDateMonthYear,
+  getDaysOfYearFullFormatInLists
 } from "../logic/helper.js";
 import { TYPE_OF_EVENTS } from "../logic/constant";
 
@@ -25,26 +26,32 @@ class App extends Component {
     super(props);
     this.state = {
       year: 0,
-      eventList: {}
+      eventObj: {}
     };
     this.handleChangeYear = this.handleChangeYear.bind(this);
   }
 
   /**
-   * Adding today as an event
+   * Initiate the App, getting the current date
+   * Populate the calendar view
    */
   componentWillMount() {
     const currentDateMonthYear = getCurrentDateMonthYear();
-    const eventList = {};
-    eventList[`${currentDateMonthYear}`] = TYPE_OF_EVENTS.TODAY;
+    const initEventObj = {};
+    initEventObj[`${currentDateMonthYear}`] = TYPE_OF_EVENTS.TODAY;
     const currentYear = parseInt(getCurrentYear());
     this.setState({
         year: currentYear,
-        eventList: eventList
+        eventObj: initEventObj
       }
     );
+    console.log(getDaysOfYearFullFormatInLists(2017))
   }
 
+  /**
+   * Button clicks, +1 or -1 year according to button id
+   * @param event: button click events
+   */
   handleChangeYear(event){
     const action = event.target.id;
     let newYear = this.state.year;
