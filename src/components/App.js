@@ -87,7 +87,11 @@ class App extends Component {
           <Flex wrap={true} justify={"center"} align={"center"}>
             {yearSkeletonData.map((month,index) => {
               return (
-                <MonthCalendar month={month} key={MONTHS_LIST[index]}/>
+                <MonthCalendar
+                  key={MONTHS_LIST[index]}
+                  id={MONTHS_LIST[index]}
+                  month={month}
+                />
               );
             })}
           </Flex>

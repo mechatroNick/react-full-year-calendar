@@ -4,7 +4,6 @@
     <list default="true" id="1bc848b7-41c4-44b1-b965-3397efb89ac1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MonthCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MonthCalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logic/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/constant.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +21,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="867">
-                  <caret line="86" column="63" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="63" />
+                <state relative-caret-position="797">
+                  <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -68,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+                <state relative-caret-position="414">
+                  <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
                   </folding>
@@ -227,12 +226,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544304614803</updated>
-      <workItem from="1544304617376" duration="29340000" />
+      <workItem from="1544304617376" duration="30132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29340000" />
+    <option name="totallyTimeSpent" value="30132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1064" y="23" width="1443" height="1417" extended-state="0" />
@@ -385,8 +384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="86" column="63" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="63" />
+        <state relative-caret-position="797">
+          <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -395,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="414">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
