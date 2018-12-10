@@ -1,21 +1,28 @@
 import React, { Fragment } from "react";
-import { Box, Flex, Heading } from "../deign system";
+import { Box, Flex, Heading, Text, Select } from "../deign system";
+import styled from "styled-components";
 
-const DayBox = props => {
+const DayBox = styled(Box)`
+  background-color: ${props => props.theme.colors.lightGray};
+  border-radius: ${props => props.theme.radii[3]};
+  border-color: ${props => props.theme.colors.gray};
+`;
+
+const DayBoxGroup = props => {
   const { id, date } = props;
   return (
     <Fragment>
-      <Box my={1} width={1 / 70}></Box>
-      <Box my={1} width={8 / 70} key={id}>
+      <Box my={1} width={1 / 70} />
+      <DayBox py={[1, 2, 2, 3]} my={1} width={8 / 70} key={id}>
         {date}
-      </Box>
-      <Box my={1} width={1 / 70}></Box>
+      </DayBox>
+      <Box my={1} width={1 / 70} />
     </Fragment>
   );
 };
 
 const MonthCalendar = props => {
-  const { id, month} = props;
+  const { id, month } = props;
   return (
     <Fragment>
       <Box width={[0.1, 0.025, 1 / 54]} />
@@ -29,18 +36,54 @@ const MonthCalendar = props => {
         <Box width={1}>
           <Heading.h3>{id}</Heading.h3>
         </Box>
-        <Box my={1} bg={"blue"} color={'white'} width={1 / 7}>M</Box>
-        <Box my={1} bg={"blue"} color={'white'} width={1 / 7}>T</Box>
-        <Box my={1} bg={"blue"} color={'white'} width={1 / 7}>W</Box>
-        <Box my={1} bg={"blue"} color={'white'} width={1 / 7}>T</Box>
-        <Box my={1} bg={"blue"} color={'white'} width={1 / 7}>F</Box>
-        <Box my={1} bg={"lightBlue"} color={'white'} width={1 / 7}>S</Box>
-        <Box my={1} bg={"lightBlue"} color={'white'} width={1 / 7}>S</Box>
+        <Box py={[1, 2, 3]} my={1} bg={"blue"} color={"white"} width={1 / 7}>
+          <Text bold>M</Text>
+        </Box>
+        <Box py={[1, 2, 3]} my={1} bg={"blue"} color={"white"} width={1 / 7}>
+          <Text bold>T</Text>
+        </Box>
+        <Box py={[1, 2, 3]} my={1} bg={"blue"} color={"white"} width={1 / 7}>
+          <Text bold>W</Text>
+        </Box>
+        <Box py={[1, 2, 3]} my={1} bg={"blue"} color={"white"} width={1 / 7}>
+          <Text bold>T</Text>
+        </Box>
+        <Box py={[1, 2, 3]} my={1} bg={"blue"} color={"white"} width={1 / 7}>
+          <Text bold>F</Text>
+        </Box>
+        <Box
+          py={[1, 2, 3]}
+          my={1}
+          bg={"lightBlue"}
+          color={"white"}
+          width={1 / 7}
+        >
+          <Text bold>S</Text>
+        </Box>
+        <Box
+          py={[1, 2, 3]}
+          my={1}
+          bg={"lightBlue"}
+          color={"white"}
+          width={1 / 7}
+        >
+          <Text bold>S</Text>
+        </Box>
         {month.map(date => {
           if (date === "empty") {
-            return (<Box my={1} color={'white'} width={1 / 7}>*</Box>);
+            return (
+              <Box my={1} color={"white"} width={1 / 7}>
+                *
+              </Box>
+            );
           } else {
-            return (<DayBox id={date} key={date} date={parseInt(date.substring(8, 10))}/>);
+            return (
+              <DayBoxGroup
+                id={date}
+                key={date}
+                date={parseInt(date.substring(8, 10))}
+              />
+            );
           }
         })}
       </Flex>
