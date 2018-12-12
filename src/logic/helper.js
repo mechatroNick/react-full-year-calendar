@@ -1,4 +1,5 @@
 import * as moment from "moment";
+import { TYPE_OF_EVENTS } from "./constant";
 
 export const getCurrentYear = () => {
   const check = moment();
@@ -8,6 +9,11 @@ export const getCurrentYear = () => {
 export const getCurrentMonth = () => {
   const check = moment();
   return check.format("MM");
+};
+
+export const getCurrentDay = () => {
+  const check = moment();
+  return check.format("DD");
 };
 
 export const getCurrentDateMonthYear = () => {
@@ -131,6 +137,24 @@ export const getDaysInCalendarMonthsFormat = daysInMonthsFullFormat => {
   let output = [];
   daysInMonthsFullFormat.forEach(monthData => {
     output.push(putDaysInCalendarMonthFormat(monthData));
+  });
+  return output;
+};
+
+export const collectEventRelatedToThisYear = (
+  eventObj = { "2018-11-18": TYPE_OF_EVENTS.BIRTHDAY },
+  year = 2018
+) => {
+  let output = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+  let relatedEvents = {};
+  Object.keys(eventObj).forEach(function(key) {
+    if (key.includes(`${year}`)) {
+      relatedEvents[`${key}`] = eventObj[key];
+    }
+  });
+  Object.keys(relatedEvents).forEach(function(key) {
+    let index = parseInt(key.substring(5, 7)) - 1;
+    output[index][`${key}`] = relatedEvents[key];
   });
   return output;
 };

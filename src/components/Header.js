@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Box, Button, Flex, Heading } from "../deign system";
+import { Box, Button, Flex, Heading } from "../design system";
 import {TYPE_OF_CHANGE_YEAR} from  "../logic/constant"
 import PropTypes from "prop-types";
 

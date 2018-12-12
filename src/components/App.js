@@ -7,8 +7,8 @@ import {
   Container,
   Flex,
   Heading,
-  Text
-} from "../deign system";
+  Text, Label, Select
+} from "../design system";
 import { TYPE_OF_CHANGE_YEAR, MONTHS_LIST } from "../logic/constant";
 
 import Header from "./Header";
@@ -17,42 +17,50 @@ import MonthCalendar from "./MonthCalendar"
 import {
   getCurrentYear,
   getCurrentMonth,
+  getCurrentDay,
   getCurrentDateMonthYear,
   getDaysOfYearFullFormatInLists,
-  getDaysInCalendarMonthsFormat
+  getDaysInCalendarMonthsFormat,
+  collectEventRelatedToThisYear
 } from "../logic/helper.js";
 import { TYPE_OF_EVENTS } from "../logic/constant";
+import Modal from "react-responsive-modal";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       year: 0,
-      eventObj: {}
+      eventStorage: {}
     };
     this.handleChangeYear = this.handleChangeYear.bind(this);
 
     App.rawYearData = {};
+    App.organizedEvents = {};
   }
 
   /**
    * Initiate the App, getting the current date
-   * Populate the calendar view
+   * Populate skeleton for the calendar view
    */
   componentWillMount() {
     const currentDateMonthYear = getCurrentDateMonthYear();
     const initEventObj = {};
-    initEventObj[`${currentDateMonthYear}`] = TYPE_OF_EVENTS.TODAY;
+    initEventObj[`${currentDateMonthYear}`] = [TYPE_OF_EVENTS.TODAY];
     const currentYear = parseInt(getCurrentYear());
+    App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
+    App.organizedEvents = collectEventRelatedToThisYear(initEventObj, currentYear);
     this.setState({
       year: currentYear,
-      eventObj: initEventObj
+      eventStorage: initEventObj
     });
-    App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
   }
+
 
   /**
    * Button clicks, +1 or -1 year according to button id
+   * Populate skeleton for a year that has not been visited before
+   * Reuse skeleton for a year that has been visited
    * @param event: button click events
    */
   handleChangeYear(event) {
@@ -68,7 +76,7 @@ class App extends Component {
       default:
         break;
     }
-    if(!App.rawYearData.hasOwnProperty`${newYear}`){
+    if(!App.rawYearData.hasOwnProperty(`${newYear}`)){
       App.rawYearData[`${newYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(newYear));
     }
     this.setState({
@@ -77,20 +85,22 @@ class App extends Component {
   }
 
   render() {
-    const {year} = this.state;
+    const {year, eventStorage} = this.state;
     const yearSkeletonData = App.rawYearData[year];
+    const relevantEvents = App.organizedEvents;
 
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
           <Header year={year} changeYear={this.handleChangeYear} />
           <Flex wrap={true} justify={"center"} align={"center"}>
-            {yearSkeletonData.map((month,index) => {
+            {yearSkeletonData.map((monthSkeleton,index) => {
               return (
                 <MonthCalendar
                   key={MONTHS_LIST[index]}
-                  id={MONTHS_LIST[index]}
-                  month={month}
+                  month={MONTHS_LIST[index]}
+                  monthEvents={relevantEvents[index]}
+                  monthSkeleton={monthSkeleton}
                 />
               );
             })}

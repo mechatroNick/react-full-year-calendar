@@ -7,6 +7,7 @@ import Flex from "./Flex";
 import Box from "./Box";
 
 const SelectBase = styled.select`
+  appearance:none;
   display: block;
   text-align: center;
   font-family: inherit;

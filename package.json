@@ -13,6 +13,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-modal": "^3.7.1",
+    "react-responsive-modal": "^3.5.1",
     "react-scripts": "2.1.1",
     "styled-components": "^4.1.2",
     "styled-system": "^3.1.11"
