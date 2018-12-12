@@ -18,10 +18,12 @@ export const bold = props =>
 
 export const italic = props => (props.italic ? { fontStyle: "italic" } : null);
 
+export const underline = props => (props.underline ? {textDecoration: "underline"} : null);
+
 const align = style("align");
 
 const Text = styled.div`
-  ${italic} ${fontSize} ${space} ${color} ${caps} ${regular} ${bold} ${align} ${textAlign};
+  ${italic} ${fontSize} ${space} ${color} ${caps} ${regular} ${bold} ${align} ${textAlign} ${underline};
 `;
 
 Text.displayName = "Text";
@@ -43,6 +45,7 @@ Text.propTypes = {
   regular: PropTypes.bool,
   bold: PropTypes.bool,
   italic: PropTypes.bool,
+  underline: PropTypes.bool,
   color: PropTypes.string,
   /** Margin */
   m: numberStringOrArray,

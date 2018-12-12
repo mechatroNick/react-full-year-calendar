@@ -95,8 +95,16 @@ const DaysOfWeekIndicator = () => {
 
 class DayBoxGroup extends Component {
   state = {
-    showModal: false
+    showModal: false,
+    today: false
   };
+
+  componentWillMount() {
+    const { eventToday } = this.props;
+    if (eventToday) {
+      this.setState({ today: true });
+    }
+  }
 
   handleOpenModal = () => {
     this.setState({ showModal: true });
@@ -108,11 +116,7 @@ class DayBoxGroup extends Component {
 
   render() {
     const { fullDate, date, month, year, eventToday } = this.props;
-    const { showModal } = this.state;
-    if (eventToday) {
-      console.log(date)
-      console.log(eventToday);
-    }
+    const { showModal, today } = this.state;
     return (
       <Fragment>
         <NoSelectBox my={1} width={1 / 70} />
@@ -123,16 +127,25 @@ class DayBoxGroup extends Component {
           key={fullDate}
           onClick={this.handleOpenModal}
         >
-          {date}
+          <Text
+            bold={today === true}
+            underline={today === true}
+          >
+            {date}
+          </Text>
         </DayBox>
         <Modal open={showModal} onClose={this.handleCloseModal} center>
-          <Text mt={[4]} textAlign={"center"}>Which special day is it?</Text>
-          <Text my={[2]} textAlign={"center"}>{fullDate}</Text>
+          <Text mt={[4]} textAlign={"center"}>
+            Which special day is it?
+          </Text>
+          <Text my={[2]} textAlign={"center"}>
+            {fullDate}
+          </Text>
           <Select
             name={fullDate}
             align={"center"}
             width={1}
-            fontSize={[2,3,4,4]}
+            fontSize={[2, 3, 4, 4]}
           >
             <option>Nothing special</option>
             <option>Holiday</option>
