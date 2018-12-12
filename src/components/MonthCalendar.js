@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import { Box, Flex, Heading, Text, Select, Label } from "../design system";
+import { Box, Flex, Heading, Text, Select, ToggleBadge } from "../design system";
 import styled from "styled-components";
 
 import Modal from "react-responsive-modal";
@@ -141,18 +141,11 @@ class DayBoxGroup extends Component {
           <Text my={[2]} textAlign={"center"}>
             {fullDate}
           </Text>
-          <Select
-            name={fullDate}
-            align={"center"}
-            width={1}
-            fontSize={[2, 3, 4, 4]}
-          >
-            <option>Nothing special</option>
-            <option>Holiday</option>
-            <option>Busy</option>
-            <option>Birthday</option>
-            <option>Anniversary</option>
-          </Select>
+          <ToggleBadge selected display={"block"}>Nothing special</ToggleBadge>
+          <ToggleBadge display={"block"}>Holiday</ToggleBadge>
+          <ToggleBadge display={"block"}>Busy</ToggleBadge>
+          <ToggleBadge display={"block"}>Birthday</ToggleBadge>
+          <ToggleBadge display={"block"}>Anniversary</ToggleBadge>
         </Modal>
         <NoSelectBox my={1} width={1 / 70} />
       </Fragment>

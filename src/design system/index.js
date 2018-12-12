@@ -6,6 +6,7 @@ export {default as Heading} from './Heading'
 export {default as Label} from './Label'
 export {default as Select} from './Select'
 export {default as Text} from './Text'
+export {default as ToggleBadge} from './ToggleBadge'
 export {default as ToolTip} from './ToolTip'
 
 export {default as theme} from './theme'
