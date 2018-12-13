@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc848b7-41c4-44b1-b965-3397efb89ac1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MonthCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MonthCalendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/design system/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/design system/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/constant.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,26 +18,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50203085">
+    <splitter split-orientation="horizontal" split-proportion="0.503406">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+                <state relative-caret-position="98">
+                  <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/design system/theme.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="548">
-                  <caret line="143" column="39" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="509">
+                  <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -92,18 +95,6 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/logic/helper.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1023">
-                  <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
-                  <folding>
-                    <element signature="e#0#33#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/design system/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="144">
@@ -128,7 +119,7 @@
             <entry file="file://$PROJECT_DIR$/src/logic/constant.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="18">
-                  <caret line="1" column="35" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="35" />
+                  <caret line="1" column="12" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -136,8 +127,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="296">
-                  <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+                <state relative-caret-position="348">
+                  <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                   </folding>
@@ -151,19 +142,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>props</find>
-      <find>system</find>
-      <find>getDaysInMonthsInList</find>
-      <find>daysInMonthFullFormat</find>
-      <find>parseInt</find>
-      <find>parse</find>
-      <find>console</find>
-      <find>wrap</find>
-      <find>openModal</find>
-      <find>month</find>
-      <find>tooltip</find>
       <find>cent</find>
-      <find>consol</find>
       <find>icon</find>
       <find>key</find>
       <find>italic</find>
@@ -175,11 +154,23 @@
       <find>selected</find>
       <find>unSelectedBg</find>
       <find>fontSize</find>
-      <find>TODAY</find>
       <find>bold</find>
-      <find>align</find>
       <find>TYPE_OF_EVENTS.to</find>
       <find>type_of_events.to</find>
+      <find>TYPE_OF_EVENT</find>
+      <find>today</find>
+      <find>consol</find>
+      <find>DEFA</find>
+      <find>TYPE_OF_EVENTS</find>
+      <find>align</find>
+      <find>TODAY</find>
+      <find>box</find>
+      <find>color</find>
+      <find>event</find>
+      <find>specialEvent</find>
+      <find>DEFAULT_EVENTS</find>
+      <find>componentWillMount</find>
+      <find>TODAY_DATE</find>
       <find>DayBox</find>
     </findStrings>
   </component>
@@ -213,8 +204,8 @@
         <option value="$PROJECT_DIR$/src/design system/index.js" />
         <option value="$PROJECT_DIR$/src/design system/ToggleBadge.js" />
         <option value="$PROJECT_DIR$/src/logic/constant.js" />
-        <option value="$PROJECT_DIR$/src/components/App.js" />
         <option value="$PROJECT_DIR$/src/design system/theme.js" />
+        <option value="$PROJECT_DIR$/src/components/App.js" />
         <option value="$PROJECT_DIR$/src/components/MonthCalendar.js" />
       </list>
     </option>
@@ -308,12 +299,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544304614803</updated>
-      <workItem from="1544304617376" duration="56883000" />
+      <workItem from="1544304617376" duration="62880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56883000" />
+    <option name="totallyTimeSpent" value="62880000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -321,14 +312,14 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.1151296" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.1151296" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="2" weight="0.45141065" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32872504" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32810867" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32949308" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -361,6 +352,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/logic/index.js">
@@ -454,16 +471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1023">
-          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/Radio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -494,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/design system/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/Box.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -521,6 +521,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1023">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/design system/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/Text.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -531,34 +548,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App.js">
+    <entry file="file://$PROJECT_DIR$/src/design system/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        <state relative-caret-position="509">
+          <caret line="115" column="9" lean-forward="true" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/huonglinh/Code repos/eroad-calendar/src/components/App.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/components/App.js</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/components/App.js#Box#200;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Button#207;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Component#16;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Container#217;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Flex#230;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Header#303;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Heading#238;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Label#255;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#MONTHS_LIST#139;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#MonthCalendar#334;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#React#7;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Select#262;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#TYPE_OF_CHANGE_YEAR#118;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#TYPE_OF_EVENTS#102;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#Text#249;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#ThemeProvider#51;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#collectEventRelatedToThisYear#531;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getCurrentDateMonthYear#437;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getCurrentDay#420;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getCurrentMonth#401;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getCurrentYear#383;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getDaysInCalendarMonthsFormat#498;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#getDaysOfYearFullFormatInLists#464;/Users/huonglinh/Code repos/eroad-calendar/src/components/App.js#theme#191;</node>
+            <node x="" y="">$PROJECT_DIR$/src/components/Header.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/components/MonthCalendar.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/logic/constant.js#MONTHS_LIST#778;/Users/huonglinh/Code repos/eroad-calendar/src/logic/constant.js#TYPE_OF_CHANGE_YEAR#206;/Users/huonglinh/Code repos/eroad-calendar/src/logic/constant.js#TYPE_OF_EVENTS#13;</node>
+            <node x="" y="">$PROJECT_DIR$/src/logic/helper.js#collectEventRelatedToThisYear#3998;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getCurrentDateMonthYear#386;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getCurrentDay#290;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getCurrentMonth#192;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getCurrentYear#93;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getDaysInCalendarMonthsFormat#3773;/Users/huonglinh/Code repos/eroad-calendar/src/logic/helper.js#getDaysOfYearFullFormatInLists#2627;</node>
+            <node x="" y="">$PROJECT_DIR$/src/design system/index.js#Box#16;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Button#53;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Container#96;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Flex#145;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Heading#184;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Label#229;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Select#270;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#Text#313;/Users/huonglinh/Code repos/eroad-calendar/src/design system/index.js#theme#451;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/react/index.js</node>
+            <node x="" y="">$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/styled-components/dist/styled-components.esm.js#ThemeProvider#49709;</node>
+            <node x="" y="">Component;</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.693609022556391" x="522.0" y="433.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="457" column="26" selection-start-line="457" selection-start-column="8" selection-end-line="457" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/logic/constant.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="1" column="35" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="35" />
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/design system/theme.js">
+    <entry file="file://$PROJECT_DIR$/src/components/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="143" column="39" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
+        <state relative-caret-position="98">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="348">
+          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

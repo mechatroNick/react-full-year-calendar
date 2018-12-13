@@ -10,7 +10,24 @@ import {
 import styled from "styled-components";
 
 import Modal from "react-responsive-modal";
-import { TYPE_OF_EVENTS, TODAY } from "../logic/constant";
+import { TYPE_OF_EVENTS } from "../logic/constant";
+
+export const eventColors = {
+  dayBoxBg: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"lightGray",
+    [TYPE_OF_EVENTS.HOLIDAY]:"green",
+    [TYPE_OF_EVENTS.BUSY]:"red",
+    [TYPE_OF_EVENTS.BIRTHDAY]:"orange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]:"purple"
+  },
+  color: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"black",
+    [TYPE_OF_EVENTS.HOLIDAY]:"white",
+    [TYPE_OF_EVENTS.BUSY]:"white",
+    [TYPE_OF_EVENTS.BIRTHDAY]:"white",
+    [TYPE_OF_EVENTS.ANNIVERSARY]:"white"
+  }
+};
 
 const NoSelectBox = styled(Box)`
   -webkit-touch-callout: none; /* iOS Safari */
@@ -32,8 +49,8 @@ NoSelectBox.defaultProps = {
 };
 
 const DayBox = styled(Box)`
-  background-color: ${props => props.theme.eventColors.dayBoxBg[props.specialEvent]};
-  color: ${props => props.theme.eventColors.color[props.specialEvent]};
+  background-color: ${props => eventColors.dayBoxBg[props.specialEvent]};
+  color: ${props => eventColors.color[props.specialEvent]};
   border-radius: ${props => props.theme.radii[3]};
   box-shadow: ${props => props.theme.boxShadows[2]};
   cursor: pointer;
@@ -94,21 +111,22 @@ class DayBoxGroup extends Component {
   };
 
   componentWillMount() {
-    const { fullDate, eventTodayList } = this.props;
+    const { fullDate, eventList } = this.props;
     const date = parseInt(fullDate.substring(8, 10));
     const month = parseInt(fullDate.substring(5, 7));
     const year = parseInt(fullDate.substring(0, 4));
     let initialState = { date: date, month: month, year: year };
 
-    if (eventTodayList) {
-      let indexToday = eventTodayList.indexOf(TODAY);
+    if (eventList) {
+      let indexToday = eventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
       if (indexToday !== -1) {
         initialState = { ...initialState, today: true };
-        eventTodayList.splice(indexToday, 1);
+        console.log(eventList);
       }
 
-      if (eventTodayList.length) {
-        initialState = { ...initialState, specialEvent: eventTodayList[0] };
+      if (eventList.length > 1) {
+        console.log(eventList);
+        initialState = { ...initialState, specialEvent: eventList[1] };
       }
     }
 
@@ -265,7 +283,7 @@ const MonthCalendar = props => {
                 date={parseInt(fullDate.substring(8, 10))}
                 month={parseInt(fullDate.substring(5, 7))}
                 year={parseInt(fullDate.substring(0, 4))}
-                eventTodayList={monthEvents[fullDate]}
+                eventList={monthEvents[fullDate]}
               />
             );
           }

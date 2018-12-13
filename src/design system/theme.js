@@ -1,5 +1,4 @@
 import { includes, get } from "lodash";
-import { TYPE_OF_EVENTS } from '../logic/constant'
 
 const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
@@ -128,24 +127,6 @@ const colors = {
 
 export { colors };
 
-export const eventColors = {
-  dayBoxBg: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"lightGray",
-    [TYPE_OF_EVENTS.HOLIDAY]:"green",
-    [TYPE_OF_EVENTS.BUSY]:"red",
-    [TYPE_OF_EVENTS.BIRTHDAY]:"orange",
-    [TYPE_OF_EVENTS.ANNIVERSARY]:"purple"
-  },
-  color: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"black",
-    [TYPE_OF_EVENTS.HOLIDAY]:"white",
-    [TYPE_OF_EVENTS.BUSY]:"white",
-    [TYPE_OF_EVENTS.BIRTHDAY]:"white",
-    [TYPE_OF_EVENTS.ANNIVERSARY]:"white"
-  }
-};
-
-
 // styled-system's `borderRadius` function can hook into the `radii` object/array
 export const radii = ['0px', '2px', '4px', '8px', '16px', '32px', "100%"];
 export const radius = "2px";
@@ -191,22 +172,6 @@ export const scaleFactor = 17 / 16;
 
 export const shadowColor = "rgba(0,0,0,0.125)";
 
-export const hexa = (color, alpha) => {
-  const hex = cx(color);
-  if (!includes(hex, "#")) return shadowColor;
-  const r = parseInt(hex.slice(1, 3), 16),
-    g = parseInt(hex.slice(3, 5), 16),
-    b = parseInt(hex.slice(5, 7), 16);
-
-  if (alpha >= 0) {
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  } else {
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-};
-
-export const cx = key => get(colors, key, key);
-
 const theme = {
   breakpoints,
   mediaQueries,
@@ -218,7 +183,6 @@ const theme = {
   regular,
   bold,
   colors,
-  eventColors,
   radii,
   radius,
   boxShadows,
@@ -226,8 +190,6 @@ const theme = {
   duration,
   timingFunctions,
   transitionDelays,
-  cx,
-  hexa,
   scaleFactor
 };
 

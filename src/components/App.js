@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
+import { TYPE_OF_EVENTS, TYPE_OF_CHANGE_YEAR, MONTHS_LIST } from "../logic/constant";
+
 import {
   theme,
   Box,
@@ -9,8 +11,6 @@ import {
   Heading,
   Text, Label, Select
 } from "../design system";
-import { TYPE_OF_CHANGE_YEAR, MONTHS_LIST, TODAY } from "../logic/constant";
-
 import Header from "./Header";
 import MonthCalendar from "./MonthCalendar"
 
@@ -23,39 +23,28 @@ import {
   getDaysInCalendarMonthsFormat,
   collectEventRelatedToThisYear
 } from "../logic/helper.js";
-import { TYPE_OF_EVENTS } from "../logic/constant";
-import Modal from "react-responsive-modal";
+
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    const currentYear = parseInt(getCurrentYear());
+    const currentDateMonthYear = getCurrentDateMonthYear();
+    const today = [TYPE_OF_EVENTS.TODAY_DATE];
+    let initEventObj = {};
+    initEventObj[`${currentDateMonthYear}`] = today;
+
     this.state = {
-      year: 0,
-      eventStorage: {}
+      year: currentYear,
+      eventStorage: initEventObj
     };
     this.handleChangeYear = this.handleChangeYear.bind(this);
 
     App.rawYearData = {};
-    App.organizedEvents = {};
-  }
-
-  /**
-   * Initiate the App, getting the current date
-   * Populate skeleton for the calendar view
-   */
-  componentWillMount() {
-    const currentDateMonthYear = getCurrentDateMonthYear();
-    const initEventObj = {};
-    initEventObj[`${currentDateMonthYear}`] = [TODAY];
-    const currentYear = parseInt(getCurrentYear());
     App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
     App.organizedEvents = collectEventRelatedToThisYear(initEventObj, currentYear);
-    this.setState({
-      year: currentYear,
-      eventStorage: initEventObj
-    });
   }
-
 
   /**
    * Button clicks, +1 or -1 year according to button id
