@@ -32,9 +32,10 @@ NoSelectBox.defaultProps = {
 };
 
 const DayBox = styled(Box)`
-  background-color: ${props => props.theme.colors.lightGray};
+  background-color: ${props => props.theme.eventColors.dayBoxBg[props.specialEvent]};
+  color: ${props => props.theme.eventColors.color[props.specialEvent]};
   border-radius: ${props => props.theme.radii[3]};
-  border-color: ${props => props.theme.colors.gray};
+  box-shadow: ${props => props.theme.boxShadows[2]};
   cursor: pointer;
   font-weight: ${props =>
     props.bold ? { fontWeight: props.theme.bold } : null};
@@ -143,6 +144,7 @@ class DayBoxGroup extends Component {
           width={8 / 70}
           key={fullDate}
           onClick={this.handleOpenModal}
+          specialEvent={specialEvent}
         >
           <Text bold={today === true} underline={today === true}>
             {date}

@@ -1,5 +1,5 @@
-import palx from "palx";
-import { includes, get, omit } from "lodash";
+import { includes, get } from "lodash";
+import { TYPE_OF_EVENTS } from '../logic/constant'
 
 const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
@@ -128,6 +128,24 @@ const colors = {
 
 export { colors };
 
+export const eventColors = {
+  dayBoxBg: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"lightGray",
+    [TYPE_OF_EVENTS.HOLIDAY]:"green",
+    [TYPE_OF_EVENTS.BUSY]:"red",
+    [TYPE_OF_EVENTS.BIRTHDAY]:"orange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]:"purple"
+  },
+  color: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"black",
+    [TYPE_OF_EVENTS.HOLIDAY]:"white",
+    [TYPE_OF_EVENTS.BUSY]:"white",
+    [TYPE_OF_EVENTS.BIRTHDAY]:"white",
+    [TYPE_OF_EVENTS.ANNIVERSARY]:"white"
+  }
+};
+
+
 // styled-system's `borderRadius` function can hook into the `radii` object/array
 export const radii = ['0px', '2px', '4px', '8px', '16px', '32px', "100%"];
 export const radius = "2px";
@@ -200,6 +218,7 @@ const theme = {
   regular,
   bold,
   colors,
+  eventColors,
   radii,
   radius,
   boxShadows,
