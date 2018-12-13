@@ -10,6 +10,7 @@ import {
 import styled from "styled-components";
 
 import Modal from "react-responsive-modal";
+import { TYPE_OF_EVENTS } from "../logic/constant";
 
 const NoSelectBox = styled(Box)`
   -webkit-touch-callout: none; /* iOS Safari */
@@ -88,18 +89,28 @@ class DayBoxGroup extends Component {
     month: undefined,
     year: undefined,
     today: false,
-    specialEvent: null
+    specialEvent: TYPE_OF_EVENTS.NOTHING_SPECIAL
   };
 
   componentWillMount() {
-    const { fullDate, eventToday } = this.props;
+    const { fullDate, eventTodayList } = this.props;
     const date = parseInt(fullDate.substring(8, 10));
     const month = parseInt(fullDate.substring(5, 7));
     const year = parseInt(fullDate.substring(0, 4));
     let initialState = { date: date, month: month, year: year };
-    if (eventToday) {
-      initialState = { ...initialState, today: true };
+
+    if (eventTodayList) {
+      let indexToday = eventTodayList.indexOf(TYPE_OF_EVENTS.TODAY);
+      if (indexToday !== -1) {
+        initialState = { ...initialState, today: true };
+        eventTodayList.splice(indexToday, 1);
+      }
+
+      if (eventTodayList.length) {
+        initialState = { ...initialState, specialEvent: eventTodayList[0] };
+      }
     }
+
     this.setState(initialState);
   }
 
@@ -111,9 +122,15 @@ class DayBoxGroup extends Component {
     this.setState({ showModal: false });
   };
 
+  handleChangeTypeOfSpecialEvent = event => {
+    if(event.target.name !== this.state.specialEvent){
+      this.setState({ specialEvent: event.target.name });
+    }
+  };
+
   render() {
-    const { fullDate, eventToday } = this.props;
-    const { showModal, today, date, month, year } = this.state;
+    const { fullDate } = this.props;
+    const { showModal, today, date, month, year, specialEvent } = this.state;
 
     return (
       <Fragment>
@@ -138,58 +155,72 @@ class DayBoxGroup extends Component {
             {date + "/" + month + "/" + year}
           </Text>
           <ToggleBadge
-
+            name={TYPE_OF_EVENTS.NOTHING_SPECIAL}
+            selected={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
+            bold={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
             color={"white"}
             unSelectedColor={"black"}
             bg={"darkGray"}
-            unSelectedBg={'borderGray'}
+            unSelectedBg={"borderGray"}
             display={"block"}
             fontSize={[2, 2, 3, 3]}
+            onClick={this.handleChangeTypeOfSpecialEvent}
           >
             Nothing special
           </ToggleBadge>
           <ToggleBadge
-
+            name={TYPE_OF_EVENTS.HOLIDAY}
+            selected={specialEvent === TYPE_OF_EVENTS.HOLIDAY}
+            bold={specialEvent === TYPE_OF_EVENTS.HOLIDAY}
             color={"white"}
             unSelectedColor={"black"}
             bg={"darkGreen"}
-            unSelectedBg={'lightGreen'}
+            unSelectedBg={"lightGreen"}
             display={"block"}
             fontSize={[2, 2, 3, 3]}
+            onClick={this.handleChangeTypeOfSpecialEvent}
           >
             Holiday
-          </ToggleBadge
-            >
+          </ToggleBadge>
           <ToggleBadge
-
+            name={TYPE_OF_EVENTS.BUSY}
+            selected={specialEvent === TYPE_OF_EVENTS.BUSY}
+            bold={specialEvent === TYPE_OF_EVENTS.BUSY}
             color={"white"}
             unSelectedColor={"black"}
             bg={"darkRed"}
-            unSelectedBg={'lightRed'}
+            unSelectedBg={"lightRed"}
             display={"block"}
             fontSize={[2, 2, 3, 3]}
+            onClick={this.handleChangeTypeOfSpecialEvent}
           >
             Busy
           </ToggleBadge>
           <ToggleBadge
-
+            name={TYPE_OF_EVENTS.BIRTHDAY}
+            selected={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
+            bold={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
             color={"white"}
             unSelectedColor={"black"}
             bg={"darkOrange"}
-            unSelectedBg={'lightOrange'}
+            unSelectedBg={"lightOrange"}
             display={"block"}
             fontSize={[2, 2, 3, 3]}
+            onClick={this.handleChangeTypeOfSpecialEvent}
           >
             Birthday
           </ToggleBadge>
           <ToggleBadge
-
+            name={TYPE_OF_EVENTS.ANNIVERSARY}
+            selected={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
+            bold={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
             color={"white"}
             unSelectedColor={"black"}
             bg={"darkPurple"}
-            unSelectedBg={'lightPurple'}
+            unSelectedBg={"lightPurple"}
             display={"block"}
             fontSize={[2, 2, 3, 3]}
+            onClick={this.handleChangeTypeOfSpecialEvent}
           >
             Anniversary
           </ToggleBadge>
@@ -230,7 +261,7 @@ const MonthCalendar = props => {
                 date={parseInt(fullDate.substring(8, 10))}
                 month={parseInt(fullDate.substring(5, 7))}
                 year={parseInt(fullDate.substring(0, 4))}
-                eventToday={monthEvents[fullDate]}
+                eventTodayList={monthEvents[fullDate]}
               />
             );
           }

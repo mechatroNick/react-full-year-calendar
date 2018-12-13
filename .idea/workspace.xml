@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc848b7-41c4-44b1-b965-3397efb89ac1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MonthCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MonthCalendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/design system/ToggleBadge.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/design system/ToggleBadge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logic/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logic/constant.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,8 +34,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/design system/theme.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="235">
-                  <caret line="60" column="16" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="16" />
+                <state relative-caret-position="271">
+                  <caret line="35" column="20" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#24#0" expanded="true" />
                   </folding>
@@ -58,8 +58,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/design system/ToggleBadge.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+                <state relative-caret-position="198">
+                  <caret line="11" column="36" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -131,8 +131,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/logic/constant.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="1" column="7" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="7" />
+                <state relative-caret-position="54">
+                  <caret line="3" column="19" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -140,8 +140,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
-                  <caret line="153" column="27" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="27" />
+                <state relative-caret-position="453">
+                  <caret line="126" column="53" selection-start-line="126" selection-start-column="53" selection-end-line="126" selection-end-column="53" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                   </folding>
@@ -155,7 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>radi</find>
       <find>radius</find>
       <find>currentDateMonthYear</find>
       <find>flex</find>
@@ -173,7 +172,6 @@
       <find>tooltip</find>
       <find>cent</find>
       <find>consol</find>
-      <find>bold</find>
       <find>icon</find>
       <find>key</find>
       <find>italic</find>
@@ -184,7 +182,9 @@
       <find>consolle</find>
       <find>selected</find>
       <find>align</find>
+      <find>fontSize</find>
       <find>unSelectedBg</find>
+      <find>bold</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -201,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/components/Heading.js" />
         <option value="$PROJECT_DIR$/src/deign system/Button.js" />
         <option value="$PROJECT_DIR$/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/src/logic/constant.js" />
         <option value="$PROJECT_DIR$/src/deign system/index.js" />
         <option value="$PROJECT_DIR$/src/deign system/theme.js" />
         <option value="$PROJECT_DIR$/src/deign system/Select.js" />
@@ -217,8 +216,9 @@
         <option value="$PROJECT_DIR$/src/design system/Text.js" />
         <option value="$PROJECT_DIR$/src/design system/Radio.js" />
         <option value="$PROJECT_DIR$/src/design system/index.js" />
-        <option value="$PROJECT_DIR$/src/components/MonthCalendar.js" />
+        <option value="$PROJECT_DIR$/src/logic/constant.js" />
         <option value="$PROJECT_DIR$/src/design system/ToggleBadge.js" />
+        <option value="$PROJECT_DIR$/src/components/MonthCalendar.js" />
       </list>
     </option>
   </component>
@@ -311,12 +311,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544304614803</updated>
-      <workItem from="1544304617376" duration="53210000" />
+      <workItem from="1544304617376" duration="55242000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53210000" />
+    <option name="totallyTimeSpent" value="55242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -467,16 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/design system/Box.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/Radio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -487,13 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/design system/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/Select.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -501,13 +484,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/logic/constant.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -541,32 +517,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/design system/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="47" lean-forward="true" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/design system/Box.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/constant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/design system/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="60" column="16" selection-start-line="60" selection-start-column="6" selection-end-line="60" selection-end-column="16" />
+        <state relative-caret-position="271">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="20" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
+    <entry file="file://$PROJECT_DIR$/src/design system/ToggleBadge.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="153" column="27" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="27" />
+        <state relative-caret-position="198">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="36" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/design system/ToggleBadge.js">
+    <entry file="file://$PROJECT_DIR$/src/components/MonthCalendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="21" column="52" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
+        <state relative-caret-position="453">
+          <caret line="126" column="53" selection-start-line="126" selection-start-column="53" selection-end-line="126" selection-end-column="53" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
