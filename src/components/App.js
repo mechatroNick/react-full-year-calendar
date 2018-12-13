@@ -94,6 +94,41 @@ class App extends Component {
     let currentEventList = [];
     let newEventList = [];
     if (eventStorage.hasOwnProperty(date)) {
+      currentEventList = eventStorage[date];
+      console.log(currentEventList);
+      let indexToday = currentEventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
+      if (indexToday !== -1) {
+        switch (name) {
+          case TYPE_OF_EVENTS.HOLIDAY:
+          case TYPE_OF_EVENTS.BUSY:
+          case TYPE_OF_EVENTS.BIRTHDAY:
+          case TYPE_OF_EVENTS.ANNIVERSARY:
+            newEventList.push(TYPE_OF_EVENTS.TODAY_DATE, name);
+            eventStorage[date] = newEventList;
+            break;
+          case TYPE_OF_EVENTS.NOTHING_SPECIAL:
+            newEventList.push(TYPE_OF_EVENTS.TODAY_DATE);
+            eventStorage[date] = newEventList;
+            break;
+          default:
+            break;
+        }
+      } else  {
+        switch (name) {
+          case TYPE_OF_EVENTS.HOLIDAY:
+          case TYPE_OF_EVENTS.BUSY:
+          case TYPE_OF_EVENTS.BIRTHDAY:
+          case TYPE_OF_EVENTS.ANNIVERSARY:
+            newEventList.push(name);
+            eventStorage[date] = newEventList;
+            break;
+          case TYPE_OF_EVENTS.NOTHING_SPECIAL:
+            delete eventStorage[`${date}`];
+            break;
+          default:
+            break;
+        }
+      }
     } else {
       switch (name) {
         case TYPE_OF_EVENTS.HOLIDAY:

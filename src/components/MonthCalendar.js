@@ -143,7 +143,7 @@ class DayBoxGroup extends Component {
 
   handleChangeTypeOfSpecialEvent = event => {
     const newSpecialEvent = event.target.name;
-    const currentSpecialEvent = this.state.specialEvent;
+    const currentSpecialEvent = this.props.specialEvent;
     const { fullDate } = this.props;
     if (newSpecialEvent !== currentSpecialEvent) {
       // this.setState({ specialEvent: newSpecialEvent });
@@ -159,7 +159,6 @@ class DayBoxGroup extends Component {
     let specialEvent = TYPE_OF_EVENTS.NOTHING_SPECIAL;
 
     if (eventList) {
-      console.log(eventList);
       let indexToday = eventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
       if (indexToday !== -1) {
         if (eventList.length > 1) {
