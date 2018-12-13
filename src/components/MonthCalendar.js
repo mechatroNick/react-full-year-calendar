@@ -14,18 +14,18 @@ import { TYPE_OF_EVENTS } from "../logic/constant";
 
 export const eventColors = {
   dayBoxBg: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"lightGray",
-    [TYPE_OF_EVENTS.HOLIDAY]:"green",
-    [TYPE_OF_EVENTS.BUSY]:"red",
-    [TYPE_OF_EVENTS.BIRTHDAY]:"orange",
-    [TYPE_OF_EVENTS.ANNIVERSARY]:"purple"
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "lightGray",
+    [TYPE_OF_EVENTS.HOLIDAY]: "green",
+    [TYPE_OF_EVENTS.BUSY]: "red",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "orange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "purple"
   },
   color: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]:"black",
-    [TYPE_OF_EVENTS.HOLIDAY]:"white",
-    [TYPE_OF_EVENTS.BUSY]:"white",
-    [TYPE_OF_EVENTS.BIRTHDAY]:"white",
-    [TYPE_OF_EVENTS.ANNIVERSARY]:"white"
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "black",
+    [TYPE_OF_EVENTS.HOLIDAY]: "white",
+    [TYPE_OF_EVENTS.BUSY]: "white",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "white",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "white"
   }
 };
 
@@ -144,14 +144,33 @@ class DayBoxGroup extends Component {
   handleChangeTypeOfSpecialEvent = event => {
     const newSpecialEvent = event.target.name;
     const currentSpecialEvent = this.state.specialEvent;
-    if(newSpecialEvent !== currentSpecialEvent){
-      this.setState({ specialEvent: newSpecialEvent });
+    const { fullDate } = this.props;
+    if (newSpecialEvent !== currentSpecialEvent) {
+      // this.setState({ specialEvent: newSpecialEvent });
+      const payload = { target: { name: newSpecialEvent, date: fullDate } };
+      this.props.onChangeSpecialEvent(payload);
     }
   };
 
   render() {
-    const { fullDate } = this.props;
-    const { showModal, today, date, month, year, specialEvent } = this.state;
+    const { fullDate, eventList } = this.props;
+    const { showModal, today, date, month, year } = this.state;
+
+    let specialEvent = TYPE_OF_EVENTS.NOTHING_SPECIAL;
+
+    if (eventList) {
+      console.log(eventList);
+      let indexToday = eventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
+      if (indexToday !== -1) {
+        if (eventList.length > 1) {
+          specialEvent = eventList[1];
+        }
+      } else {
+        if (eventList.length > 0) {
+          specialEvent = eventList[0];
+        }
+      }
+    }
 
     return (
       <Fragment>
@@ -177,6 +196,7 @@ class DayBoxGroup extends Component {
             {date + "/" + month + "/" + year}
           </Text>
           <ToggleBadge
+            date={fullDate}
             name={TYPE_OF_EVENTS.NOTHING_SPECIAL}
             selected={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
             bold={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
@@ -191,6 +211,7 @@ class DayBoxGroup extends Component {
             Nothing special
           </ToggleBadge>
           <ToggleBadge
+            date={fullDate}
             name={TYPE_OF_EVENTS.HOLIDAY}
             selected={specialEvent === TYPE_OF_EVENTS.HOLIDAY}
             bold={specialEvent === TYPE_OF_EVENTS.HOLIDAY}
@@ -205,6 +226,7 @@ class DayBoxGroup extends Component {
             Holiday
           </ToggleBadge>
           <ToggleBadge
+            date={fullDate}
             name={TYPE_OF_EVENTS.BUSY}
             selected={specialEvent === TYPE_OF_EVENTS.BUSY}
             bold={specialEvent === TYPE_OF_EVENTS.BUSY}
@@ -219,6 +241,7 @@ class DayBoxGroup extends Component {
             Busy
           </ToggleBadge>
           <ToggleBadge
+            date={fullDate}
             name={TYPE_OF_EVENTS.BIRTHDAY}
             selected={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
             bold={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
@@ -233,6 +256,7 @@ class DayBoxGroup extends Component {
             Birthday
           </ToggleBadge>
           <ToggleBadge
+            date={fullDate}
             name={TYPE_OF_EVENTS.ANNIVERSARY}
             selected={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
             bold={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
@@ -284,6 +308,9 @@ const MonthCalendar = props => {
                 month={parseInt(fullDate.substring(5, 7))}
                 year={parseInt(fullDate.substring(0, 4))}
                 eventList={monthEvents[fullDate]}
+                onChangeSpecialEvent={
+                  props.handleUpdateAppStorageOnSpecialEvent
+                }
               />
             );
           }

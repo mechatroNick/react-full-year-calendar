@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
-import { TYPE_OF_EVENTS, TYPE_OF_CHANGE_YEAR, MONTHS_LIST } from "../logic/constant";
+import {
+  TYPE_OF_EVENTS,
+  TYPE_OF_CHANGE_YEAR,
+  MONTHS_LIST
+} from "../logic/constant";
 
 import {
   theme,
@@ -9,10 +13,12 @@ import {
   Container,
   Flex,
   Heading,
-  Text, Label, Select
+  Text,
+  Label,
+  Select
 } from "../design system";
 import Header from "./Header";
-import MonthCalendar from "./MonthCalendar"
+import MonthCalendar from "./MonthCalendar";
 
 import {
   getCurrentYear,
@@ -23,7 +29,6 @@ import {
   getDaysInCalendarMonthsFormat,
   collectEventRelatedToThisYear
 } from "../logic/helper.js";
-
 
 class App extends Component {
   constructor(props) {
@@ -42,8 +47,16 @@ class App extends Component {
     this.handleChangeYear = this.handleChangeYear.bind(this);
 
     App.rawYearData = {};
-    App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
-    App.organizedEvents = collectEventRelatedToThisYear(initEventObj, currentYear);
+    App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(
+      getDaysOfYearFullFormatInLists(currentYear)
+    );
+    App.organizedEvents = collectEventRelatedToThisYear(
+      initEventObj,
+      currentYear
+    );
+    this.updateAppStorageOnSpecialEvent = this.updateAppStorageOnSpecialEvent.bind(
+      this
+    );
   }
 
   /**
@@ -65,16 +78,45 @@ class App extends Component {
       default:
         break;
     }
-    if(!App.rawYearData.hasOwnProperty(`${newYear}`)){
-      App.rawYearData[`${newYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(newYear));
+    if (!App.rawYearData.hasOwnProperty(`${newYear}`)) {
+      App.rawYearData[`${newYear}`] = getDaysInCalendarMonthsFormat(
+        getDaysOfYearFullFormatInLists(newYear)
+      );
     }
     this.setState({
       year: newYear
     });
   }
 
+  updateAppStorageOnSpecialEvent(event) {
+    let { date, name } = event.target;
+    let { eventStorage, year } = this.state;
+    let currentEventList = [];
+    let newEventList = [];
+    if (eventStorage.hasOwnProperty(date)) {
+    } else {
+      switch (name) {
+        case TYPE_OF_EVENTS.HOLIDAY:
+        case TYPE_OF_EVENTS.BUSY:
+        case TYPE_OF_EVENTS.BIRTHDAY:
+        case TYPE_OF_EVENTS.ANNIVERSARY:
+          newEventList.push(name);
+          eventStorage[date] = newEventList;
+          break;
+        case TYPE_OF_EVENTS.NOTHING_SPECIAL:
+        default:
+          break;
+      }
+    }
+    App.organizedEvents = collectEventRelatedToThisYear(
+      eventStorage,
+      year
+    );
+    this.setState({eventStorage:eventStorage})
+  }
+
   render() {
-    const {year, eventStorage} = this.state;
+    const { year, eventStorage } = this.state;
     const yearSkeletonData = App.rawYearData[year];
     const relevantEvents = App.organizedEvents;
 
@@ -83,13 +125,16 @@ class App extends Component {
         <Container maxWidth={1280}>
           <Header year={year} changeYear={this.handleChangeYear} />
           <Flex wrap={true} justify={"center"} align={"center"}>
-            {yearSkeletonData.map((monthSkeleton,index) => {
+            {yearSkeletonData.map((monthSkeleton, index) => {
               return (
                 <MonthCalendar
                   key={MONTHS_LIST[index]}
                   month={MONTHS_LIST[index]}
                   monthEvents={relevantEvents[index]}
                   monthSkeleton={monthSkeleton}
+                  handleUpdateAppStorageOnSpecialEvent={
+                    this.updateAppStorageOnSpecialEvent
+                  }
                 />
               );
             })}
