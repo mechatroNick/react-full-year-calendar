@@ -13,11 +13,13 @@ const ToggleBadge = styled.button`
   font-family: inherit;
   cursor: pointer;
   background-color: ${props =>
-    props.selected ? props.theme.colors[props.bg] : props.unSelectedBg};
-  color: ${props => props.theme.colors[props.color]};
+    props.selected ? props.theme.colors[props.bg] : props.theme.colors[props.unSelectedBg]};
+  color: ${props =>
+  props.selected ? props.theme.colors[props.color] : props.theme.colors[props.unSelectedColor]};
   ${space} ${fontSize};
   &:hover {
     background-color: ${props => props.theme.colors[props.bg]};
+    color: ${props => props.theme.colors[props.color]};
   }
 `;
 
@@ -35,11 +37,12 @@ ToggleBadge.defaultProps = {
   selected: false,
   px: 2,
   py: 1,
-  mx: 1,
+  mx: 0,
   my: 1,
   fontSize: 0,
   theme: theme,
   color: "blue",
+  unSelectedColor: "lightBlue",
   bg: "lightBlue",
   unSelectedBg: "transparent",
   display: "inline-block"

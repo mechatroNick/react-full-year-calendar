@@ -1,5 +1,12 @@
 import React, { Fragment, Component } from "react";
-import { Box, Flex, Heading, Text, Select, ToggleBadge } from "../design system";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Select,
+  ToggleBadge
+} from "../design system";
 import styled from "styled-components";
 
 import Modal from "react-responsive-modal";
@@ -14,6 +21,15 @@ const NoSelectBox = styled(Box)`
                                   supported by Chrome and Opera */
 `;
 
+NoSelectBox.defaultProps = {
+  py: [1, 2, 3],
+  my: 1,
+  bg: "blue",
+  color: "white",
+  width: 1 / 7,
+  bold: true
+};
+
 const DayBox = styled(Box)`
   background-color: ${props => props.theme.colors.lightGray};
   border-radius: ${props => props.theme.radii[3]};
@@ -26,68 +42,40 @@ const DayBox = styled(Box)`
 const DaysOfWeekIndicator = () => {
   return (
     <Fragment>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"blue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>M</Text>
+      <NoSelectBox>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          M
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"blue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>T</Text>
+      <NoSelectBox>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          T
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"blue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>W</Text>
+      <NoSelectBox>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          W
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"blue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>T</Text>
+      <NoSelectBox>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          T
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"blue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>F</Text>
+      <NoSelectBox>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          F
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"lightBlue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>S</Text>
+      <NoSelectBox bg={"lightBlue"}>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          S
+        </Text>
       </NoSelectBox>
-      <NoSelectBox
-        py={[1, 2, 3]}
-        my={1}
-        bg={"lightBlue"}
-        color={"white"}
-        width={1 / 7}
-      >
-        <Text bold>S</Text>
+      <NoSelectBox bg={"lightBlue"}>
+        <Text bold fontSize={[2, 2, 2, 3]}>
+          S
+        </Text>
       </NoSelectBox>
     </Fragment>
   );
@@ -96,14 +84,23 @@ const DaysOfWeekIndicator = () => {
 class DayBoxGroup extends Component {
   state = {
     showModal: false,
-    today: false
+    date: undefined,
+    month: undefined,
+    year: undefined,
+    today: false,
+    specialEvent: null
   };
 
   componentWillMount() {
-    const { eventToday } = this.props;
+    const { fullDate, eventToday } = this.props;
+    const date = parseInt(fullDate.substring(8, 10));
+    const month = parseInt(fullDate.substring(5, 7));
+    const year = parseInt(fullDate.substring(0, 4));
+    let initialState = { date: date, month: month, year: year };
     if (eventToday) {
-      this.setState({ today: true });
+      initialState = { ...initialState, today: true };
     }
+    this.setState(initialState);
   }
 
   handleOpenModal = () => {
@@ -115,11 +112,12 @@ class DayBoxGroup extends Component {
   };
 
   render() {
-    const { fullDate, date, month, year, eventToday } = this.props;
-    const { showModal, today } = this.state;
+    const { fullDate, eventToday } = this.props;
+    const { showModal, today, date, month, year } = this.state;
+
     return (
       <Fragment>
-        <NoSelectBox my={1} width={1 / 70} />
+        <Box my={1} width={1 / 70} />
         <DayBox
           py={[1, 2, 2, 3]}
           my={1}
@@ -127,27 +125,75 @@ class DayBoxGroup extends Component {
           key={fullDate}
           onClick={this.handleOpenModal}
         >
-          <Text
-            bold={today === true}
-            underline={today === true}
-          >
+          <Text bold={today === true} underline={today === true}>
             {date}
           </Text>
         </DayBox>
+        <Box my={1} width={1 / 70} />
         <Modal open={showModal} onClose={this.handleCloseModal} center>
           <Text mt={[4]} textAlign={"center"}>
             Which special day is it?
           </Text>
           <Text my={[2]} textAlign={"center"}>
-            {fullDate}
+            {date + "/" + month + "/" + year}
           </Text>
-          <ToggleBadge selected display={"block"}>Nothing special</ToggleBadge>
-          <ToggleBadge display={"block"}>Holiday</ToggleBadge>
-          <ToggleBadge display={"block"}>Busy</ToggleBadge>
-          <ToggleBadge display={"block"}>Birthday</ToggleBadge>
-          <ToggleBadge display={"block"}>Anniversary</ToggleBadge>
+          <ToggleBadge
+
+            color={"white"}
+            unSelectedColor={"black"}
+            bg={"darkGray"}
+            unSelectedBg={'borderGray'}
+            display={"block"}
+            fontSize={[2, 2, 3, 3]}
+          >
+            Nothing special
+          </ToggleBadge>
+          <ToggleBadge
+
+            color={"white"}
+            unSelectedColor={"black"}
+            bg={"darkGreen"}
+            unSelectedBg={'lightGreen'}
+            display={"block"}
+            fontSize={[2, 2, 3, 3]}
+          >
+            Holiday
+          </ToggleBadge
+            >
+          <ToggleBadge
+
+            color={"white"}
+            unSelectedColor={"black"}
+            bg={"darkRed"}
+            unSelectedBg={'lightRed'}
+            display={"block"}
+            fontSize={[2, 2, 3, 3]}
+          >
+            Busy
+          </ToggleBadge>
+          <ToggleBadge
+
+            color={"white"}
+            unSelectedColor={"black"}
+            bg={"darkOrange"}
+            unSelectedBg={'lightOrange'}
+            display={"block"}
+            fontSize={[2, 2, 3, 3]}
+          >
+            Birthday
+          </ToggleBadge>
+          <ToggleBadge
+
+            color={"white"}
+            unSelectedColor={"black"}
+            bg={"darkPurple"}
+            unSelectedBg={'lightPurple'}
+            display={"block"}
+            fontSize={[2, 2, 3, 3]}
+          >
+            Anniversary
+          </ToggleBadge>
         </Modal>
-        <NoSelectBox my={1} width={1 / 70} />
       </Fragment>
     );
   }
@@ -157,7 +203,7 @@ const MonthCalendar = props => {
   const { month, monthSkeleton, monthEvents } = props;
   return (
     <Fragment>
-      <NoSelectBox width={[0.1, 0.025, 1 / 54]} />
+      <Box width={[0.1, 0.025, 1 / 54]} />
       <Flex
         width={[0.8, 0.45, 16 / 54]}
         color={"Black"}
@@ -165,31 +211,26 @@ const MonthCalendar = props => {
         textAlign={"center"}
         align={"center"}
       >
-        <NoSelectBox width={1}>
+        <Box width={1}>
           <Heading.h3>{month}</Heading.h3>
-        </NoSelectBox>
+        </Box>
         <DaysOfWeekIndicator />
-        {monthSkeleton.map(date => {
-          if (date === "empty") {
+        {monthSkeleton.map(fullDate => {
+          if (fullDate === "empty") {
             return (
-              <NoSelectBox
-                py={[1, 2, 2, 3]}
-                my={1}
-                color={"white"}
-                width={1 / 7}
-              >
+              <Box py={[1, 2, 2, 3]} my={1} color={"white"} width={1 / 7}>
                 *
-              </NoSelectBox>
+              </Box>
             );
           } else {
             return (
               <DayBoxGroup
-                key={date}
-                fullDate={date}
-                date={parseInt(date.substring(8, 10))}
-                month={parseInt(date.substring(5, 7))}
-                year={parseInt(date.substring(0, 4))}
-                eventToday={monthEvents[date]}
+                key={fullDate}
+                fullDate={fullDate}
+                date={parseInt(fullDate.substring(8, 10))}
+                month={parseInt(fullDate.substring(5, 7))}
+                year={parseInt(fullDate.substring(0, 4))}
+                eventToday={monthEvents[fullDate]}
               />
             );
           }
