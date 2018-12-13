@@ -10,7 +10,7 @@ import {
 import styled from "styled-components";
 
 import Modal from "react-responsive-modal";
-import { TYPE_OF_EVENTS } from "../logic/constant";
+import { TYPE_OF_EVENTS, TODAY } from "../logic/constant";
 
 const NoSelectBox = styled(Box)`
   -webkit-touch-callout: none; /* iOS Safari */
@@ -100,7 +100,7 @@ class DayBoxGroup extends Component {
     let initialState = { date: date, month: month, year: year };
 
     if (eventTodayList) {
-      let indexToday = eventTodayList.indexOf(TYPE_OF_EVENTS.TODAY);
+      let indexToday = eventTodayList.indexOf(TODAY);
       if (indexToday !== -1) {
         initialState = { ...initialState, today: true };
         eventTodayList.splice(indexToday, 1);
@@ -123,8 +123,10 @@ class DayBoxGroup extends Component {
   };
 
   handleChangeTypeOfSpecialEvent = event => {
-    if(event.target.name !== this.state.specialEvent){
-      this.setState({ specialEvent: event.target.name });
+    const newSpecialEvent = event.target.name;
+    const currentSpecialEvent = this.state.specialEvent;
+    if(newSpecialEvent !== currentSpecialEvent){
+      this.setState({ specialEvent: newSpecialEvent });
     }
   };
 

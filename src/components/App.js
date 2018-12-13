@@ -9,7 +9,7 @@ import {
   Heading,
   Text, Label, Select
 } from "../design system";
-import { TYPE_OF_CHANGE_YEAR, MONTHS_LIST } from "../logic/constant";
+import { TYPE_OF_CHANGE_YEAR, MONTHS_LIST, TODAY } from "../logic/constant";
 
 import Header from "./Header";
 import MonthCalendar from "./MonthCalendar"
@@ -46,7 +46,7 @@ class App extends Component {
   componentWillMount() {
     const currentDateMonthYear = getCurrentDateMonthYear();
     const initEventObj = {};
-    initEventObj[`${currentDateMonthYear}`] = [TYPE_OF_EVENTS.TODAY];
+    initEventObj[`${currentDateMonthYear}`] = [TODAY];
     const currentYear = parseInt(getCurrentYear());
     App.rawYearData[`${currentYear}`] = getDaysInCalendarMonthsFormat(getDaysOfYearFullFormatInLists(currentYear));
     App.organizedEvents = collectEventRelatedToThisYear(initEventObj, currentYear);
