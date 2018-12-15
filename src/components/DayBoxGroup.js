@@ -3,6 +3,7 @@ import { eventColors, TYPE_OF_EVENTS } from "../logic/constant";
 import { Box, Text, ToggleBadge } from "../design system";
 import DayBox from "./DayBox";
 import Modal from "react-responsive-modal";
+import PropTypes from "prop-types";
 
 class DayBoxGroup extends PureComponent {
   state = {
@@ -177,6 +178,11 @@ class DayBoxGroup extends PureComponent {
       </Fragment>
     );
   }
+}
+
+DayBoxGroup.propTypes = {
+  fullDate: PropTypes.string.isRequired,
+  eventList: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default DayBoxGroup;

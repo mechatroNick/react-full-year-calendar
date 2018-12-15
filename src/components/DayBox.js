@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { eventColors } from "../logic/constant";
 import { Box } from "../design system";

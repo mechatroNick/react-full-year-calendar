@@ -1,7 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { theme as themeGet, space, fontSize, propTypes } from "styled-system";
+import { space, fontSize, propTypes } from "styled-system";
 import theme from "./theme";
 
 const ToggleBadge = styled.button`

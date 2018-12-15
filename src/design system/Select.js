@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { space, fontSize, width, color, style, textAlign } from "styled-system";
 
 import theme from "./theme";
-import Flex from "./Flex";
-import Box from "./Box";
 
 const SelectBase = styled.select`
   appearance:none;

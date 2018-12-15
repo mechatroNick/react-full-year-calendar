@@ -1,5 +1,3 @@
-import { includes, get } from "lodash";
-
 const createMediaQuery = n => `@media screen and (min-width:${n}px)`;
 
 const addAliases = (arr, aliases) =>
