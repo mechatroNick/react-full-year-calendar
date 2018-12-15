@@ -1,7 +1,10 @@
 import React, { Fragment, PureComponent } from "react";
 import { Box, Flex, Heading } from "../design system";
-import DaysOfWeekIndicator from './DaysOfWeekIndicator'
-import DayBoxGroup from './DayBoxGroup'
+import DaysOfWeekIndicator from "./DaysOfWeekIndicator";
+import DayBoxGroup from "./DayBoxGroup";
+import NoSelectBox from "./NoSelectBox";
+import PropTypes from "prop-types";
+import {MONTHS_LIST} from "../logic/constant"
 
 class MonthCalendar extends PureComponent {
   render() {
@@ -25,12 +28,19 @@ class MonthCalendar extends PureComponent {
             <Heading.h3>{month}</Heading.h3>
           </Box>
           <DaysOfWeekIndicator />
-          {monthSkeleton.map(fullDate => {
+          {monthSkeleton.map((fullDate, index) => {
             if (fullDate === "empty") {
               return (
-                <Box py={[1, 2, 2, 3]} my={1} color={"white"} width={1 / 7}>
+                <NoSelectBox
+                  key={index}
+                  py={[1, 2, 2, 3]}
+                  my={1}
+                  color={"white"}
+                  bg={"transparent"}
+                  width={1 / 7}
+                >
                   *
-                </Box>
+                </NoSelectBox>
               );
             } else {
               return (
@@ -52,5 +62,12 @@ class MonthCalendar extends PureComponent {
     );
   }
 }
+
+MonthCalendar.propTypes = {
+  month: PropTypes.PropTypes.oneOf(MONTHS_LIST).isRequired,
+  monthSkeleton: PropTypes.arrayOf(PropTypes.string).isRequired,
+  monthEvents: PropTypes.object,
+  handleUpdateAppStorageOnSpecialEvent: PropTypes.func.isRequired
+};
 
 export default MonthCalendar;

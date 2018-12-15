@@ -94,7 +94,6 @@ class App extends Component {
     let newEventList = [];
     if (eventStorage.hasOwnProperty(date)) {
       currentEventList = eventStorage[date];
-      console.log(currentEventList);
       let indexToday = currentEventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
       if (indexToday !== -1) {
         switch (name) {

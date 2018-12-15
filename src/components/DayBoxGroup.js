@@ -1,4 +1,4 @@
-import React, {PureComponent, Fragment} from 'react'
+import React, { PureComponent, Fragment } from "react";
 import { eventColors, TYPE_OF_EVENTS } from "../logic/constant";
 import { Box, Text, ToggleBadge } from "../design system";
 import DayBox from "./DayBox";
@@ -105,9 +105,13 @@ class DayBoxGroup extends PureComponent {
             selected={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
             bold={specialEvent === TYPE_OF_EVENTS.NOTHING_SPECIAL}
             color={eventColors.toggleColor[TYPE_OF_EVENTS.NOTHING_SPECIAL]}
-            unSelectedColor={eventColors.unToggledColor[TYPE_OF_EVENTS.NOTHING_SPECIAL]}
+            unSelectedColor={
+              eventColors.unToggledColor[TYPE_OF_EVENTS.NOTHING_SPECIAL]
+            }
             bg={eventColors.toggleBg[TYPE_OF_EVENTS.NOTHING_SPECIAL]}
-            unSelectedBg={eventColors.unToggledBg[TYPE_OF_EVENTS.NOTHING_SPECIAL]}
+            unSelectedBg={
+              eventColors.unToggledBg[TYPE_OF_EVENTS.NOTHING_SPECIAL]
+            }
             display={"block"}
             fontSize={[2, 2, 3, 3]}
             onClick={this.handleChangeTypeOfSpecialEvent}
@@ -150,7 +154,9 @@ class DayBoxGroup extends PureComponent {
             selected={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
             bold={specialEvent === TYPE_OF_EVENTS.BIRTHDAY}
             color={eventColors.toggleColor[TYPE_OF_EVENTS.BIRTHDAY]}
-            unSelectedColor={eventColors.unToggledColor[TYPE_OF_EVENTS.BIRTHDAY]}
+            unSelectedColor={
+              eventColors.unToggledColor[TYPE_OF_EVENTS.BIRTHDAY]
+            }
             bg={eventColors.toggleBg[TYPE_OF_EVENTS.BIRTHDAY]}
             unSelectedBg={eventColors.unToggledBg[TYPE_OF_EVENTS.BIRTHDAY]}
             display={"block"}
@@ -165,7 +171,9 @@ class DayBoxGroup extends PureComponent {
             selected={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
             bold={specialEvent === TYPE_OF_EVENTS.ANNIVERSARY}
             color={eventColors.toggleColor[TYPE_OF_EVENTS.ANNIVERSARY]}
-            unSelectedColor={eventColors.unToggledColor[TYPE_OF_EVENTS.ANNIVERSARY]}
+            unSelectedColor={
+              eventColors.unToggledColor[TYPE_OF_EVENTS.ANNIVERSARY]
+            }
             bg={eventColors.toggleBg[TYPE_OF_EVENTS.ANNIVERSARY]}
             unSelectedBg={eventColors.unToggledBg[TYPE_OF_EVENTS.ANNIVERSARY]}
             display={"block"}
@@ -183,6 +191,6 @@ class DayBoxGroup extends PureComponent {
 DayBoxGroup.propTypes = {
   fullDate: PropTypes.string.isRequired,
   eventList: PropTypes.arrayOf(PropTypes.string)
-}
+};
 
 export default DayBoxGroup;
