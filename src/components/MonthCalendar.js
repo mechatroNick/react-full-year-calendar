@@ -66,8 +66,8 @@ class MonthCalendar extends PureComponent {
 MonthCalendar.propTypes = {
   month: PropTypes.PropTypes.oneOf(MONTHS_LIST).isRequired,
   monthSkeleton: PropTypes.arrayOf(PropTypes.string).isRequired,
-  monthEvents: PropTypes.object,
-  handleUpdateAppStorageOnSpecialEvent: PropTypes.func.isRequired
+  monthEvents: PropTypes.object.isRequired,
+  handleUpdateAppStorageOnSpecialEvent: PropTypes.func
 };
 
 export default MonthCalendar;
