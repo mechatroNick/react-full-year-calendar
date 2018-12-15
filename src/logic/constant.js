@@ -21,6 +21,34 @@ export const eventColors = {
     [TYPE_OF_EVENTS.BUSY]: "white",
     [TYPE_OF_EVENTS.BIRTHDAY]: "white",
     [TYPE_OF_EVENTS.ANNIVERSARY]: "white"
+  },
+  toggleColor: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "white",
+    [TYPE_OF_EVENTS.HOLIDAY]: "white",
+    [TYPE_OF_EVENTS.BUSY]: "white",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "white",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "white"
+  },
+  unToggledColor: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "black",
+    [TYPE_OF_EVENTS.HOLIDAY]: "black",
+    [TYPE_OF_EVENTS.BUSY]: "black",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "black",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "black"
+  },
+  toggleBg: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "darkGray",
+    [TYPE_OF_EVENTS.HOLIDAY]: "darkGreen",
+    [TYPE_OF_EVENTS.BUSY]: "darkRed",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "darkOrange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "darkPurple"
+  },
+  unToggledBg:{
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "borderGray",
+    [TYPE_OF_EVENTS.HOLIDAY]: "lightGreen",
+    [TYPE_OF_EVENTS.BUSY]: "lightRed",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "lightOrange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "lightPurple"
   }
 };
 

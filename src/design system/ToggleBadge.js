@@ -6,7 +6,7 @@ import theme from "./theme";
 
 const ToggleBadge = styled.button`
   width: 100%;
-  border-radius: ${props => props.theme.radius};
+  border-radius: ${props => theme.radii[props.radius]};
   border: 0;
   display: ${props => props.display};
   font-weight: ${props => props.bold ? props.theme.bold : props.theme.regular};
@@ -20,6 +20,7 @@ const ToggleBadge = styled.button`
   &:hover {
     background-color: ${props => props.theme.colors[props.bg]};
     color: ${props => props.theme.colors[props.color]};
+    font-weight: bold;
   }
 `;
 
@@ -38,14 +39,15 @@ ToggleBadge.defaultProps = {
   px: 2,
   py: 1,
   mx: 0,
-  my: 1,
+  my: 2,
   fontSize: 0,
   theme: theme,
   color: "blue",
   unSelectedColor: "lightBlue",
   bg: "lightBlue",
   unSelectedBg: "transparent",
-  display: "inline-block"
+  display: "inline-block",
+  radius: 2
 };
 
 export default ToggleBadge;
