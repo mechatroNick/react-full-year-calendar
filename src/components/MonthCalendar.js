@@ -20,7 +20,7 @@ class MonthCalendar extends PureComponent {
         <Flex
           width={[0.8, 0.45, 16 / 54]}
           color={"Black"}
-          wrap={true}
+          wrap={"wrap"}
           textAlign={"center"}
           align={"center"}
         >

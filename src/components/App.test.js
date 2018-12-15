@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {render} from 'react-testing-library'
 import App from './App';
 
 it('renders App without crashing', () => {
@@ -7,3 +8,7 @@ it('renders App without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('render App using react-testing-library', () => {
+  render(<App />);
+})

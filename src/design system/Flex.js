@@ -10,7 +10,7 @@ import {
 import Box from "./Box";
 import PropTypes from "prop-types";
 
-const wrap = props => (props.wrap ? { flexWrap: "wrap" } : null);
+const wrap = props => (props.wrap==="wrap" ? { flexWrap: "wrap" } : null);
 
 const Flex = styled(Box)`
   display: flex;
@@ -18,7 +18,7 @@ const Flex = styled(Box)`
 `;
 
 Flex.propTypes = {
-  wrap: PropTypes.bool,
+  wrap: PropTypes.string,
   ...propTypes.alignSelf,
   ...propTypes.alignItems,
   ...propTypes.justifyContent,

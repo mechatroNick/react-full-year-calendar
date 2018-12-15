@@ -13,7 +13,6 @@ it('renders MonthCalendar without crashing', () => {
   const yearSkeletonData = getDaysInCalendarMonthsFormat(
     getDaysOfYearFullFormatInLists(year));
   const monthSkeleton = yearSkeletonData[monthIndex];
-  console.log(monthSkeleton);
   ReactDOM.render(
     <MonthCalendar
       month={month}

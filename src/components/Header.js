@@ -7,7 +7,7 @@ const Header = props => {
   const { year, changeYear } = props;
   return (
     <Fragment>
-      <Flex wrap={true} justify={"center"} align={"center"}>
+      <Flex wrap={"wrap"} justify={"center"} align={"center"}>
         <Box fontSize={[2, 3, 4, 4]} width={[1 / 3, 1/4, 1 / 5]} my={[3, 3, 4, 4]} textAlign={"center"}>
           <Button
 

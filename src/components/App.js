@@ -154,7 +154,7 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Container maxWidth={1280}>
           <Header year={year} changeYear={this.handleChangeYear} />
-          <Flex wrap={true} justify={"center"} align={"center"}>
+          <Flex wrap={"wrap"} justify={"center"} align={"center"}>
             {yearSkeletonData.map((monthSkeleton, index) => {
               return (
                 <MonthCalendar
