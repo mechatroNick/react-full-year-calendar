@@ -38,7 +38,7 @@ const Header = props => {
 
 Header.propTypes = {
   year: PropTypes.number.isRequired,
-  changeYear: PropTypes.func.isRequired
+  changeYear: PropTypes.func
 };
 
 export default Header;
