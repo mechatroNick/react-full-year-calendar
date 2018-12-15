@@ -8,7 +8,7 @@ const Header = props => {
   return (
     <Fragment>
       <Flex wrap={true} justify={"center"} align={"center"}>
-        <Box width={1 / 5} my={3} textAlign={"center"}>
+        <Box width={1 / 5} my={[3,3,4,4]} textAlign={"center"}>
           <Button id={TYPE_OF_CHANGE_YEAR.TO_PREVIOUS_YEAR} radius={5} onClick={changeYear}>
             Prev
           </Button>
@@ -16,7 +16,7 @@ const Header = props => {
         <Box width={3 / 5} textAlign={"center"}>
           <Heading.h1>{year}</Heading.h1>
         </Box>
-        <Box width={1 / 5} my={3} textAlign={"center"}>
+        <Box width={1 / 5} my={[3,3,4,4]}  textAlign={"center"}>
           <Button id={TYPE_OF_CHANGE_YEAR.TO_NEXT_YEAR} radius={5} onClick={changeYear}>
             Next
           </Button>

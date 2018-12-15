@@ -170,6 +170,7 @@ class App extends Component {
               );
             })}
           </Flex>
+          <Header year={year} changeYear={this.handleChangeYear} />
         </Container>
       </ThemeProvider>
     );
