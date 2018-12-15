@@ -1,4 +1,4 @@
-import * as moment from "moment";
+import moment from "moment";
 import { TYPE_OF_EVENTS } from "./constant";
 
 export const getCurrentYear = () => {

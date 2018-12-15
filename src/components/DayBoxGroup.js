@@ -26,11 +26,9 @@ class DayBoxGroup extends PureComponent {
       let indexToday = eventList.indexOf(TYPE_OF_EVENTS.TODAY_DATE);
       if (indexToday !== -1) {
         initialState = { ...initialState, today: true };
-        console.log(eventList);
       }
 
       if (eventList.length > 1) {
-        console.log(eventList);
         initialState = { ...initialState, specialEvent: eventList[1] };
       }
     }
