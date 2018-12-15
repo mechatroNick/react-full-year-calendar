@@ -4,101 +4,12 @@ import {
   Flex,
   Heading,
   Text,
-  Select,
   ToggleBadge
 } from "../design system";
-import styled from "styled-components";
-
 import Modal from "react-responsive-modal";
+import DayBox from './DayBox'
+import DaysOfWeekIndicator from './DaysOfWeekIndicator'
 import { TYPE_OF_EVENTS } from "../logic/constant";
-
-export const eventColors = {
-  dayBoxBg: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "lightGray",
-    [TYPE_OF_EVENTS.HOLIDAY]: "green",
-    [TYPE_OF_EVENTS.BUSY]: "red",
-    [TYPE_OF_EVENTS.BIRTHDAY]: "orange",
-    [TYPE_OF_EVENTS.ANNIVERSARY]: "purple"
-  },
-  color: {
-    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "black",
-    [TYPE_OF_EVENTS.HOLIDAY]: "white",
-    [TYPE_OF_EVENTS.BUSY]: "white",
-    [TYPE_OF_EVENTS.BIRTHDAY]: "white",
-    [TYPE_OF_EVENTS.ANNIVERSARY]: "white"
-  }
-};
-
-const NoSelectBox = styled(Box)`
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-`;
-
-NoSelectBox.defaultProps = {
-  py: [1, 2, 3],
-  my: 1,
-  bg: "blue",
-  color: "white",
-  width: 1 / 7,
-  bold: true
-};
-
-const DayBox = styled(Box)`
-  background-color: ${props => eventColors.dayBoxBg[props.specialEvent]};
-  color: ${props => eventColors.color[props.specialEvent]};
-  border-radius: ${props => props.theme.radii[3]};
-  box-shadow: ${props => props.theme.boxShadows[2]};
-  cursor: pointer;
-  font-weight: ${props =>
-    props.bold ? { fontWeight: props.theme.bold } : null};
-`;
-
-const DaysOfWeekIndicator = () => {
-  return (
-    <Fragment>
-      <NoSelectBox>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          M
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          T
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          W
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          T
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          F
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox bg={"lightBlue"}>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          S
-        </Text>
-      </NoSelectBox>
-      <NoSelectBox bg={"lightBlue"}>
-        <Text bold fontSize={[2, 2, 2, 3]}>
-          S
-        </Text>
-      </NoSelectBox>
-    </Fragment>
-  );
-};
 
 class DayBoxGroup extends PureComponent {
   state = {

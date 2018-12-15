@@ -7,6 +7,23 @@ export const TYPE_OF_EVENTS = {
   ANNIVERSARY: "ANNIVERSARY"
 };
 
+export const eventColors = {
+  dayBoxBg: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "lightGray",
+    [TYPE_OF_EVENTS.HOLIDAY]: "green",
+    [TYPE_OF_EVENTS.BUSY]: "red",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "orange",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "purple"
+  },
+  color: {
+    [TYPE_OF_EVENTS.NOTHING_SPECIAL]: "black",
+    [TYPE_OF_EVENTS.HOLIDAY]: "white",
+    [TYPE_OF_EVENTS.BUSY]: "white",
+    [TYPE_OF_EVENTS.BIRTHDAY]: "white",
+    [TYPE_OF_EVENTS.ANNIVERSARY]: "white"
+  }
+};
+
 export const TYPE_OF_CHANGE_YEAR = {
   TO_PREVIOUS_YEAR: "TO_PREVIOUS_YEAR",
   TO_NEXT_YEAR: "TO_NEXT_YEAR"
