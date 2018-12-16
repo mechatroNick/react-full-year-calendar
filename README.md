@@ -2,10 +2,6 @@
 
 ## 1. Forehead
 
-Author: [Nick Do](https://www.linkedin.com/in/nick-do/) <br>
-Licence: MIT
-
-I would like to thank the Nik Arkharov and team at EROAD for the given exercise. <br>
 Below I will outline:
 
 - How start the local development server, run test, and build the project
