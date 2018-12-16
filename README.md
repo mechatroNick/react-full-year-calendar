@@ -1,4 +1,4 @@
-# EROAD React full year calendar assignment
+#React full year calendar
 
 ## 1. Forehead
 
