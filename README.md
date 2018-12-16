@@ -44,6 +44,10 @@ The main objectives are summarized below.
 
 ![](README/basicView1.png)
 
+![](README/basicView2.png)
+
+![](README/basicView3.png)
+
 ### **`achieved`** By default today date should be distinguishable from the rest of the days
 
 ![](README/hightlightToday.png)
@@ -118,6 +122,7 @@ The value for each key is an array because it might need to contain both `"TODAY
 As for the skeleton of each month. The dates which belong to a month are generated via a `O(N)` time algorithm in which
 `N` is the number of month. The algorithm only ask `moment.js` which day is the 1st of that month (Monday, Tuesday...) and increment the array that store all the days accordingly.
 The space complexity is also linear with the number of month, and times `42` (6 x 7) to be exact. The maximum number of rows for this arrangement is `6` for the maxmimum of `31` days to be arranged.
+
 ![](README/skeleton.png)
 
 The data for the skeleton are stored like below.
