@@ -73,7 +73,7 @@ The main objectives are summarized below.
 ## 3. Analysis
 
 ### Concept
-The app haas an `<App/>` component that contains all other components, as well as the state of the program.
+The app has an `<App/>` component that contains all other components, as well as the state of the program.
 Inside it, the data of days and events are distributed into 12 calendar month components `<MonthCalendar/>`.
 Component '<MonthCalendar/>' then renders all the date components `<DayBoxGroup/>` with color coded events, and align them depending to which day of the week it is (Monday, Tuesday...)
 Finally, the `<Header/>` component which contains navigation `<Button/>` allows for changing the calendar year, as well as displaying which year it is in the `<Header.h1/>` component.
@@ -190,6 +190,8 @@ I have already investigated whether generating the position of `<DayBoxGroup/>` 
 Another `React` library that I looked into also has this problem.
 [React-yearly-calendar](https://github.com/BelkaLab/react-yearly-calendar) also takes roughly *500ms*
  to render when user change the year. **If you have a solution to improving this please do let me know.**
+ 
+ **CORRECTION: in the final build, the delay to move between pages is much shorter (200ms), so maybe this is not an issue. But I like to have feedback.**
 
 ![](README/reactYearlyCalendar.png)
 
