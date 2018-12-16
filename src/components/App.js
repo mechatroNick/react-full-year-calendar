@@ -62,6 +62,7 @@ class App extends Component {
   handleChangeYear(event) {
     const action = event.target.id;
     let newYear = this.state.year;
+    const {eventStorage} = this.state;
     switch (action) {
       case TYPE_OF_CHANGE_YEAR.TO_PREVIOUS_YEAR:
         newYear -= 1;
@@ -77,8 +78,10 @@ class App extends Component {
         getDaysOfYearFullFormatInLists(newYear)
       );
     }
+    App.organizedEvents = collectEventRelatedToThisYear(eventStorage, newYear);
     this.setState({
-      year: newYear
+      year: newYear,
+      eventStorage: eventStorage
     });
   }
 
