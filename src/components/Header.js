@@ -8,9 +8,13 @@ const Header = props => {
   return (
     <Fragment>
       <Flex wrap={"wrap"} justify={"center"} align={"center"}>
-        <Box fontSize={[2, 3, 4, 4]} width={[1 / 3, 1/4, 1 / 5]} my={[3, 3, 4, 4]} textAlign={"center"}>
+        <Box
+          fontSize={[2, 3, 4, 4]}
+          width={[1 / 3, 1 / 4, 1 / 5]}
+          my={[3, 3, 4, 4]}
+          textAlign={"center"}
+        >
           <Button
-
             id={TYPE_OF_CHANGE_YEAR.TO_PREVIOUS_YEAR}
             radius={5}
             onClick={changeYear}
@@ -18,12 +22,16 @@ const Header = props => {
             Prev
           </Button>
         </Box>
-        <Box width={[1 / 3, 2/4, 3 / 5]} textAlign={"center"}>
+        <Box width={[1 / 3, 2 / 4, 3 / 5]} textAlign={"center"}>
           <Heading.h1>{year}</Heading.h1>
         </Box>
-        <Box fontSize={[2, 3, 4, 4]} width={[1 / 3, 1/4, 1 / 5]} my={[3, 3, 4, 4]} textAlign={"center"}>
+        <Box
+          fontSize={[2, 3, 4, 4]}
+          width={[1 / 3, 1 / 4, 1 / 5]}
+          my={[3, 3, 4, 4]}
+          textAlign={"center"}
+        >
           <Button
-
             id={TYPE_OF_CHANGE_YEAR.TO_NEXT_YEAR}
             radius={5}
             onClick={changeYear}

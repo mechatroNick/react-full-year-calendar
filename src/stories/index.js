@@ -21,4 +21,4 @@ import App from '../components/App'
 //   ));
 
 storiesOf('Theme', module)
-.add('default theme', () => (<App />))
+.add('default theme', () => (<App />));

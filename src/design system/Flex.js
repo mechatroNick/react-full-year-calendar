@@ -18,7 +18,7 @@ const Flex = styled(Box)`
 `;
 
 Flex.propTypes = {
-  wrap: PropTypes.string,
+  wrap: PropTypes.oneOf(["wrap","none"]),
   ...propTypes.alignSelf,
   ...propTypes.alignItems,
   ...propTypes.justifyContent,

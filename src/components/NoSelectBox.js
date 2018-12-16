@@ -14,7 +14,7 @@ const NoSelectBox = styled(Box)`
 NoSelectBox.defaultProps = {
   py: [1, 2, 3],
   my: 1,
-  bg: "blue",
+  bg: "red",
   color: "white",
   width: 1 / 7,
   bold: true

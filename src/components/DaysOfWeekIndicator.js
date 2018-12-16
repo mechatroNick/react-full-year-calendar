@@ -30,12 +30,12 @@ const DaysOfWeekIndicator = () => {
           F
         </Text>
       </NoSelectBox>
-      <NoSelectBox bg={"lightBlue"}>
+      <NoSelectBox bg={"lightRed"}>
         <Text bold fontSize={[2, 2, 2, 3]}>
           S
         </Text>
       </NoSelectBox>
-      <NoSelectBox bg={"lightBlue"}>
+      <NoSelectBox bg={"lightRed"}>
         <Text bold fontSize={[2, 2, 2, 3]}>
           S
         </Text>

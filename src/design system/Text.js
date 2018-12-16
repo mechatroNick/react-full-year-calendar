@@ -18,7 +18,8 @@ export const bold = props =>
 
 export const italic = props => (props.italic ? { fontStyle: "italic" } : null);
 
-export const underline = props => (props.underline ? {textDecoration: "underline"} : null);
+export const underline = props =>
+  props.underline ? { textDecoration: "underline" } : null;
 
 const align = style("align");
 

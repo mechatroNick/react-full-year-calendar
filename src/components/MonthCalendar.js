@@ -4,7 +4,7 @@ import DaysOfWeekIndicator from "./DaysOfWeekIndicator";
 import DayBoxGroup from "./DayBoxGroup";
 import NoSelectBox from "./NoSelectBox";
 import PropTypes from "prop-types";
-import {MONTHS_LIST} from "../logic/constant"
+import { MONTHS_LIST } from "../logic/constant";
 
 class MonthCalendar extends PureComponent {
   render() {
