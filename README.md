@@ -42,11 +42,11 @@ The main objectives are summarized below.
 * Dates labelled with Mon-Sun on top
 * All dates arranged so that it is clear to see which day of the week it is
 
-![Render yearly view](./README/Screen Shot 2018-12-16 at 7.12.36 PM.png)
+![Render yearly view](README/Screen Shot 2018-12-16 at 7.12.36 PM.png)
 
 **`achieved`** By default today date should be distinguishable from the rest of the days
 
-![Today](./README/React App 2018-12-16 19-14-23.png)
+![Today](README/React App 2018-12-16 19-14-23.png)
 
 **`achieved`** Ability to mark date as one of the following categories and each should have a different color:
   + Holiday
@@ -137,4 +137,4 @@ Another `React` library that I looked into also has this problem.
 [React-yearly-calendar](https://github.com/BelkaLab/react-yearly-calendar) also takes roughly *500ms*
  to render when user change the year. **If you have a solution to improving this please do let me know.**
 
-![React-yearly-calendar](./README/Screen Shot 2018-12-16 at 6.29.57 PM.png)
+![React-yearly-calendar](README/Screen Shot 2018-12-16 at 6.29.57 PM.png)
