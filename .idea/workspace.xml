@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc848b7-41c4-44b1-b965-3397efb89ac1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/README/React App 2018-12-16 19-14-23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/Screen Shot 2018-12-16 at 7.12.36 PM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-18-44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-18-44.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-23-37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-23-37.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-26-47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/screencast 2018-12-16 19-26-47.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README/React App 2018-12-16 19-14-23.png" beforeDir="false" afterPath="$PROJECT_DIR$/React App 2018-12-16 19-14-23.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README/Screen Shot 2018-12-16 at 6.29.57 PM.png" beforeDir="false" afterPath="$PROJECT_DIR$/Screen Shot 2018-12-16 at 6.29.57 PM.png" afterDir="false" />
@@ -40,8 +49,13 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
+<<<<<<< HEAD
               <first_editor relative-caret-position="940">
                 <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+=======
+              <first_editor relative-caret-position="792">
+                <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+>>>>>>> parent of e14820a... DOCUMENTATION: try changing README image path
               </first_editor>
               <second_editor />
             </state>
@@ -241,12 +255,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1544304614803</updated>
+<<<<<<< HEAD
       <workItem from="1544304617376" duration="96492000" />
+=======
+      <workItem from="1544304617376" duration="95758000" />
+>>>>>>> parent of e14820a... DOCUMENTATION: try changing README image path
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="96492000" />
+=======
+    <option name="totallyTimeSpent" value="95758000" />
+>>>>>>> parent of e14820a... DOCUMENTATION: try changing README image path
   </component>
   <component name="ToolWindowManager">
     <frame x="584" y="23" width="1923" height="1417" extended-state="0" />
@@ -689,8 +711,13 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
+<<<<<<< HEAD
           <first_editor relative-caret-position="940">
             <caret line="130" column="53" selection-start-line="130" selection-start-column="53" selection-end-line="130" selection-end-column="53" />
+=======
+          <first_editor relative-caret-position="792">
+            <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+>>>>>>> parent of e14820a... DOCUMENTATION: try changing README image path
           </first_editor>
           <second_editor />
         </state>

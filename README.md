@@ -42,11 +42,11 @@ The main objectives are summarized below.
 * Dates labelled with Mon-Sun on top
 * All dates arranged so that it is clear to see which day of the week it is
 
-![](Screen Shot 2018-12-16 at 7.12.36 PM.png)
+![](README/basicView1.png)
 
 **`achieved`** By default today date should be distinguishable from the rest of the days
 
-![](React App 2018-12-16 19-14-23.png)
+![](README/hightlightToday.png)
 
 **`achieved`** Ability to mark date as one of the following categories and each should have a different color:
   + Holiday
@@ -54,18 +54,21 @@ The main objectives are summarized below.
   + Busy
   + Anniversary
   
-![](screencast 2018-12-16 19-18-44.gif)
-![](screencast 2018-12-16 19-18-44.mp4)
+![](README/objective1.gif)
+
+![](README/objective1.mp4)
   
 **`achieved`** Ability to remove special categories from the date
 
-![](screencast 2018-12-16 19-23-37.gif)
-![](screencast 2018-12-16 19-23-37.mp4)
+![](README/objective2.gif)
+
+![](README/objective2.mp4)
 
 **`achieved`** Ability to move between year without losing data
 
-![](screencast 2018-12-16 19-26-47.gif)
-![](screencast 2018-12-16 19-26-47.mp4)
+![](README/objective3.gif)
+
+![](README/objective3.mp4)
 
 ## Analysis
 
@@ -137,4 +140,4 @@ Another `React` library that I looked into also has this problem.
 [React-yearly-calendar](https://github.com/BelkaLab/react-yearly-calendar) also takes roughly *500ms*
  to render when user change the year. **If you have a solution to improving this please do let me know.**
 
-![](Screen Shot 2018-12-16 at 6.29.57 PM.png)
+![](README/reactYearlyCalendar.png)
