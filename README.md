@@ -12,7 +12,7 @@ Below I will outline:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 2. Running the code
+## 2. Running the code - THE BUILD VERSION RUNS A LOT FASTER!
 
 In the project directory, you can run:
 
