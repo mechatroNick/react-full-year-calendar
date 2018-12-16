@@ -1,4 +1,4 @@
-#React full year calendar
+# React full year calendar
 
 ## 1. Forehead
 
