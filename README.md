@@ -1,6 +1,6 @@
 # EROAD React full year calendar assignment
 
-## Forehead
+## 1. Forehead
 
 Author: [Nick Do](https://www.linkedin.com/in/nick-do/) <br>
 Licence: MIT
@@ -16,7 +16,7 @@ Below I will outline:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Running the code
+## 2. Running the code
 
 In the project directory, you can run:
 
@@ -37,18 +37,18 @@ Builds the app for production to the `build` folder.<br>
 
 The main objectives are summarized below.
 
-**`achieved`** Render yearly view:
+### **`achieved`** Render yearly view:
 * All months
 * Dates labelled with Mon-Sun on top
 * All dates arranged so that it is clear to see which day of the week it is
 
 ![](README/basicView1.png)
 
-**`achieved`** By default today date should be distinguishable from the rest of the days
+### **`achieved`** By default today date should be distinguishable from the rest of the days
 
 ![](README/hightlightToday.png)
 
-**`achieved`** Ability to mark date as one of the following categories and each should have a different color:
+### **`achieved`** Ability to mark date as one of the following categories and each should have a different color:
   + Holiday
   + Birthday
   + Busy
@@ -58,30 +58,82 @@ The main objectives are summarized below.
 
 ![](README/objective1.mp4)
   
-**`achieved`** Ability to remove special categories from the date
+### **`achieved`** Ability to remove special categories from the date
 
 ![](README/objective2.gif)
 
 ![](README/objective2.mp4)
 
-**`achieved`** Ability to move between year without losing data
+### **`achieved`** Ability to move between year without losing data
 
 ![](README/objective3.gif)
 
 ![](README/objective3.mp4)
 
-## Analysis
+## 3. Analysis
 
 ### Concept
-I made a wid
+I would have an `<App/>` component that contains all other components, as well as the state of the program.
+Inside it, data of days and events are distributed into 12 calendar component `<MonthCalendar/>`
+Component '<MonthCalendar/>' then render all the date components `<DayBoxGroup/>` with color coded events, according to which day of the week it is (Monday, Tuesday...)
+Finally, `<Header/>` component which contains navigation `<Button/>` to allow for changing calendar years, as well as displaying which year it is in a `<Header.h1/>` component.
 
-### Components
+![](README/concept.png)
 
-### Data structure to store the date
+I made a wide frame initially to build component that hovers around each the of the 
+day box. I later realize this can be a litter harder that I thought because I need 
+to have built in logic to decide whether to render on top, below or on the sides based on 
+the screen room. Thus, I ended up adopting 3rd party component `react-responsive-modal` because of ease of customization.
+
+### Data structure to store the date and events
+I have consider using either self-implemented Hash-map for storing event date to get `O(1)` look up time.
+However, `Javascript Object()` is just as good because it also implement constant look up time. The overhead is also lower than using a Hash map.
+
+The JSON below is an example of what the object that contain special events would look like:
+* Today is 16/12/2018
+* Birthday events are on 18/11/2018, and 18/11/2019
+* Anniversary events are on 16/12/2018, and 16/12/2019
+```js
+{
+  "2018-11-18":["BIRTHDAY"],
+  "2018-12-16":["TODAY","ANNIVERSARY"],
+  "2019-11-18":["BIRTHDAY"],
+  "2018-12-16":["ANNIVERSARY"]
+}
+```
+
+When user add another busy event on 17/11/2018, it becomes
+```js
+{
+  "2018-11-18":["BIRTHDAY"],
+  "2018-12-16":["TODAY","ANNIVERSARY"],
+  "2018-12-17":["BUSY"],
+  "2019-11-18":["BIRTHDAY"],
+  "2018-12-16":["ANNIVERSARY"]
+}
+```
+
+The value for each key is an array because it might need to contain both `"TODAY"` and other events like `"ANNIVERSARY"`.
+
+As for the skeleton of each month. The dates which belong to a month are generated via a `O(N)` time algorithm in which
+`N` is the number of month. The algorithm only ask `moment.js` which day is the 1st of that month (Monday, Tuesday...) and increment the array that store all the days accordingly.
+The space complexity is also linear with the number of month, and times `42` (6 x 7) to be exact. The maximum number of rows for this arrangement is `6` for the maxmimum of `31` days to be arranged.
+![](README/skeleton.png)
+
+The data for the skeleton are stored like below.
+```js
+[
+  "empty","empty","empty","empty","2018-03-01","2018-03-02","2018-03-03",
+  ...,
+  "2018-03-25","2018-03-26","2018-03-27","2018-03-28","2018-03-29","2018-03-30","2018-03-31"
+]
+//length = 42
+```
 
 ### Choice of technology
+![](README/technology.png)
 
-## Code structure
+## 4. Code structure
 
 ```$xslt
 src /
@@ -93,7 +145,7 @@ src /
 
 `src` is the folder that contain all the relevant code <br>
 
-`src/design system/` contains the theme, most basics components which are expected to be reused throughout the application ([Design System](https://www.invisionapp.com/inside-design/guide-to-design-systems/)). These components may be used in all the apps in your enterprise. <br>
+`src/design system/` contains the theme, most basics components which are expected to be reused throughout the application ([Design System](https://www.invisionapp.com/inside-design/guide-to-design-systems/)). These components may be used in all the apps in your enterprise. This folder also contain a mix of **unit tests** and **integration tests** (might move to `__test__` folder later on)<br>
 
 `src/components/` contains components which overwrite the logic and styling of components from `src/design system/` to be used for the app. These may be used only for this particular app.<br>
 
@@ -101,7 +153,7 @@ src /
 
 `src/stories` contain an interactive UI component library. Check out [storybook](https://github.com/storybooks/storybook).
 
-## Comments
+## 5. The journey
 
 ### I try to "organically grow" my components as much as possible
 One in 8 open source project has some sort of vulnerability. Each one of they may use a different styling engine, be it pure CSS, SASS, LESS, CSS-in-JS. 
@@ -141,3 +193,17 @@ Another `React` library that I looked into also has this problem.
  to render when user change the year. **If you have a solution to improving this please do let me know.**
 
 ![](README/reactYearlyCalendar.png)
+
+### Other features that I would implement give more time
+![](README/otherFeartures.png)
+
+### How much time
+Here is how much time it took me
+* Think about the problem & planning: `~1h`
+* Work on the design system: `~3h`
+* Work on the actual app building & problem solving: `~6h`
+* Writing tests: `~2h` **(I have done some unit and integration tests but not all, like what should happens when the year changes or is it rendering special day correctly)**
+* Writing docs: `~3h`
+* Random related stuff: `~2h`
+
+# Thank you! I look forward to your feedback.
