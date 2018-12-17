@@ -1,11 +1,7 @@
-# EROAD React full year calendar assignment
+# React full year calendar
 
 ## 1. Forehead
 
-Author: [Nick Do](https://www.linkedin.com/in/nick-do/) <br>
-Licence: MIT
-
-I would like to thank the Nik Arkharov and team at EROAD for the given exercise. <br>
 Below I will outline:
 
 - How start the local development server, run test, and build the project
@@ -16,7 +12,7 @@ Below I will outline:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 2. Running the code
+## 2. Running the code - THE BUILD VERSION RUNS A LOT FASTER!
 
 In the project directory, you can run:
 
@@ -77,23 +73,23 @@ The main objectives are summarized below.
 ## 3. Analysis
 
 ### Concept
-I would have an `<App/>` component that contains all other components, as well as the state of the program.
-Inside it, data of days and events are distributed into 12 calendar component `<MonthCalendar/>`
-Component '<MonthCalendar/>' then render all the date components `<DayBoxGroup/>` with color coded events, according to which day of the week it is (Monday, Tuesday...)
-Finally, `<Header/>` component which contains navigation `<Button/>` to allow for changing calendar years, as well as displaying which year it is in a `<Header.h1/>` component.
+The app has an `<App/>` component that contains all other components, as well as the state of the program.
+Inside it, the data of days and events are distributed into 12 calendar month components `<MonthCalendar/>`.
+Component '<MonthCalendar/>' then renders all the date components `<DayBoxGroup/>` with color coded events, and align them depending to which day of the week it is (Monday, Tuesday...)
+Finally, the `<Header/>` component which contains navigation `<Button/>` allows for changing the calendar year, as well as displaying which year it is in the `<Header.h1/>` component.
 
 ![](README/concept.png)
 
-I made a wide frame initially to build component that hovers around each the of the 
-day box. I later realize this can be a litter harder that I thought because I need 
+I made a wide frame and initially I planned to build a component appears when I hovers around each the of the 
+`<DayBoxGroup/>` component. I later realize this can be a litter harder that I thought it would be because I need 
 to have built in logic to decide whether to render on top, below or on the sides based on 
-the screen room. Thus, I ended up adopting 3rd party component `react-responsive-modal` because of ease of customization.
+the screen room. Thus, I ended up adopting 3rd party component `react-responsive-modal` because of ease of customization. This component center around the avaiable screen and dim unfocused background.
 
 ### Data structure to store the date and events
-I have consider using either self-implemented Hash-map for storing event date to get `O(1)` look up time.
-However, `Javascript Object()` is just as good because it also implement constant look up time. The overhead is also lower than using a Hash map.
+I have consider using either a self-implemented Hash-map for storing event date to get `O(1)` look up time.
+However, `Javascript Object()` is just as good because it also implement constant look up time. The storage overhead is also lower than using a Hash-map.
 
-The JSON below is an example of what the object that contain special events would look like:
+The JSON below is an example of what an object that contain special events would look like:
 * Today is 16/12/2018
 * Birthday events are on 18/11/2018, and 18/11/2019
 * Anniversary events are on 16/12/2018, and 16/12/2019
@@ -117,15 +113,14 @@ When user add another busy event on 17/11/2018, it becomes
 }
 ```
 
-The value for each key is an array because it might need to contain both `"TODAY"` and other events like `"ANNIVERSARY"`.
+The `value` for each `key` in the object is an array because the `value` might need to contain both `"TODAY"` and other events, for instance `"ANNIVERSARY"`.
 
-As for the skeleton of each month. The dates which belong to a month are generated via a `O(N)` time algorithm in which
-`N` is the number of month. The algorithm only ask `moment.js` which day is the 1st of that month (Monday, Tuesday...) and increment the array that store all the days accordingly.
-The space complexity is also linear with the number of month, and times `42` (6 x 7) to be exact. The maximum number of rows for this arrangement is `6` for the maxmimum of `31` days to be arranged.
+As for the skeleton of each month, the dates which belong to a month are generated via a `O(N)` time complexity algorithm in which `N` is the number of month. The algorithm only ask `moment.js` once that which day is the 1st of that month (Monday, Tuesday...), and increment the array that store all the days accordingly.
+The space complexity grows linearly with the number of month, and times `42` (6 x 7) to be exact. The maximum number of rows for this arrangement is `6` for the maxmimum of `31` days to be arranged. Each month having exactly `6` rows will eliminate any visual mismatch that may appear later on.
 
 ![](README/skeleton.png)
 
-The data for the skeleton are stored like below.
+The data for the skeleton are stored in a array with exactly 42 items.
 ```js
 [
   "empty","empty","empty","empty","2018-03-01","2018-03-02","2018-03-03",
@@ -148,33 +143,32 @@ src /
  "  /stories
 ```
 
-`src` is the folder that contain all the relevant code <br>
+`src` is the folder that contain all the relevant code. <br>
 
-`src/design system/` contains the theme, most basics components which are expected to be reused throughout the application ([Design System](https://www.invisionapp.com/inside-design/guide-to-design-systems/)). These components may be used in all the apps in your enterprise. This folder also contain a mix of **unit tests** and **integration tests** (might move to `__test__` folder later on)<br>
+`src/design system/` contains the theme variables in `theme.js`, and the most basics components which are expected to be reused throughout the application ([Design System](https://www.invisionapp.com/inside-design/guide-to-design-systems/)). These components may be used in all the apps throughout your enterprise. This folder also contain a mix of **unit tests** and **integration tests** (might move to `__test__` folder later on)<br>
 
-`src/components/` contains components which overwrite the logic and styling of components from `src/design system/` to be used for the app. These may be used only for this particular app.<br>
+`src/components/` contains the components which overwrite the logic and styling of components from `src/design system/` so they are fit to be used for the exercise. These may be used only for this particular app.<br>
 
-`src/logic` contains helper functions and constant apply only to this particular application
+`src/logic` contains the helper functions and constant that may only apply to this particular exercise.
 
-`src/stories` contain an interactive UI component library. Check out [storybook](https://github.com/storybooks/storybook).
+`src/stories` contains an interactive UI component library for developing components in isolation. Check out [storybook](https://github.com/storybooks/storybook).
 
 ## 5. The journey
 
-### I try to "organically grow" my components as much as possible
-One in 8 open source project has some sort of vulnerability. Each one of they may use a different styling engine, be it pure CSS, SASS, LESS, CSS-in-JS. 
-It can hard to keep track of the changes and customize for each of the external dependants.
-Thus, depending on some components on the internet that someone builds for their hobby with people using and testing them is not a good idea.
+### I try to "organically grow" my components
+One in eight open source projects have some sort of vulnerability. Each one of they may use a different styling engine, be it pure CSS, SASS, LESS, or CSS-in-JS. 
+It can hard to keep track of the changes and customization inherent for each of the external libraries.
+Thus, depending on some components on the internet that someone builds for their hobby should be avoided. Few people actually use and test them. Rather, companies should try to learn how to build the compnents from the open source projects.
+
+One thing that bugs me about developing with React is that components are generally not reusable enough.
+It is because components are often embedded with their unique styling and logic. Therefore, the most basics building blocks are not consistent.
 
 The way I went about doing this is to build my own `Design System` from ones that I like. 
-It may take sometimes to read their code and understand what I like to keep and what I like to change but its worth it for the long term ([Source](https://airbnb.design/building-a-visual-language/)).
-
-One thing that bugs me about experience with React is that components are not reusable enough.
-Components are often embedded with their unique styling and logic. Therefore most basics building blocks are not consistent.
-Not having to rework the responsive system for each of the components, and having static shortcut for styling are two benefits that a `Design System` can offer.
+It may take sometimes to read opensource code and understand what I like to keep and what I like to change. However, it is av ery worthy investment for the long term ([Source](https://airbnb.design/building-a-visual-language/)). More and more companies are building their own Design System (Priceline, Microsoft, DropBox, Instacart ....). Not having to rework the responsive system for each of the components, and having static shortcut for styling are two in many benefits that a `Design System` can offer.
 
 Another thing I noticed that I should do properly from the start of the exercise is how make sure all the boxes are perfectly aligned and responsive.
 I have always been curious on how to build a design system, and I took this opportunity to explore.
-As I expected, having a `Design System` programmable responsive structure turned out fantastic.
+As I expected, having a programmable responsive structure powered by a `Design System`  turned out fantastic.
 
 The library that offered a programmable responsive system is [styled-system](https://github.com/jxnblk/styled-system).
 I also learned a lot on how to build a `Design System` from [Priceline Design System](https://github.com/pricelinelabs/design-system) and [Hackclub Design System](https://github.com/hackclub/design-system).
@@ -182,33 +176,35 @@ I also learned a lot on how to build a `Design System` from [Priceline Design Sy
 ### Fine tuning
 I initially tried to make the app just to work, then work fast, then work beautifully.
 
-The part where I made it look good is self-explanatory, I just went and change some CSS-in-JS.
+The part where I made it look better is self-explanatory, I just went and change some CSS-in-JS or add some `@keyframes`. 
 
 When the app were fully functional, each time a date change its type of event (Busy/Holiday ...), it takes roughly *500ms* on my laptop. 
 One solution that I have considered is to use `React shouldComponentUpdate()` to prevent excessive updates.
-However, the  `React` comes with `PureComponent` which automatically looks for `props & state` changes. I choose this solution instead because of its simplicity.
-After changing smaller components which have their own `state` & `props` such as`<MonthCalendar />`, the app state changes significantly improved. 
+However, the  `React` comes with `PureComponent` which automatically looks for `props & state` changes. I choose this solution instead because of its simplicity and robustness.
+After changing to `PureComponent` for smaller components which have their own `state` & `props` such as`<MonthCalendar />`, the app state changes significantly improved in speed. 
 Now, each changes to the date events takes less than *200ms* which is acceptable considering the `<App/>` component keeps a hold of all days of the year, including the events.
 
-One part where the performance can still improve is when the user switches year. All the days are now positioned differently in each `<MonthCalendar/>`.
+One part where the performance can still improve is when the user switches year. All the days are positioned differently in each `<MonthCalendar/>` whent the year changes.
 This causes almost all the `<DayBoxGroup/>` components to rerender and there is no solution obvious to me to shorten this render step.
 I have already investigated whether generating the position of `<DayBoxGroup/>` cause an issue, but this skeleton building step takes less than *10ms*.
 Another `React` library that I looked into also has this problem.
 [React-yearly-calendar](https://github.com/BelkaLab/react-yearly-calendar) also takes roughly *500ms*
  to render when user change the year. **If you have a solution to improving this please do let me know.**
+ 
+ **CORRECTION: in the final build, the delay to move between pages is much shorter (200ms), so maybe this is not an issue. But I like to have feedback.**
 
 ![](README/reactYearlyCalendar.png)
 
-### Other features that I would implement give more time
+### Other features that I would implement if given more time
 ![](README/otherFeartures.png)
 
 ### How much time
-Here is how much time it took me
+Here is how much time it took me:
 * Think about the problem & planning: `~1h`
 * Work on the design system: `~3h`
 * Work on the actual app building & problem solving: `~6h`
 * Writing tests: `~2h` **(I have done some unit and integration tests but not all, like what should happens when the year changes or is it rendering special day correctly)**
-* Writing docs: `~3h`
+* Writing docs + storybook: `~3h`
 * Random related stuff: `~2h`
 
 # Thank you! I look forward to your feedback.
