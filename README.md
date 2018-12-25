@@ -14,6 +14,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## 2. Running the code - THE BUILD VERSION RUNS A LOT FASTER!
 
+### Publicly hosted link [https://d1oaefeivub2s5.cloudfront.net/](https://d1oaefeivub2s5.cloudfront.net/)
+
 In the project directory, you can run:
 
 ### `npm start`
